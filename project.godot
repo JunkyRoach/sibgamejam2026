@@ -1,0 +1,46 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=5
+
+[animation]
+
+compatibility/default_parent_skeleton_in_mesh_instance_3d=true
+
+[application]
+
+config/name="SibGameJam2026Defence"
+run/main_scene="uid://bk32bpv17lvb0"
+config/features=PackedStringArray("4.6", "GL Compatibility")
+config/icon="res://icon.svg"
+
+[autoload]
+
+ScreenController="*res://singletons/ScreenController.gd"
+GameController="*res://singletons/GameController.gd"
+EnemyManager="*res://singletons/managers/EnemyManager.tscn"
+
+[display]
+
+window/size/viewport_width=1280
+window/size/viewport_height=720
+
+[editor]
+
+naming/scene_name_casing=1
+naming/script_name_casing=1
+
+[layer_names]
+
+2d_physics/layer_1="Player"
+2d_physics/layer_2="Enemy"
+
+[rendering]
+
+renderer/rendering_method="gl_compatibility"
+renderer/rendering_method.mobile="gl_compatibility"

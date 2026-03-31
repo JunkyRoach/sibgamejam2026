@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="TowerData" format=3 uid="uid://8isbwi44skvx"]
+
+[ext_resource type="PackedScene" uid="uid://donquya5bb3mf" path="res://scenes/bullets/Arrow.tscn" id="1_4bb0s"]
+[ext_resource type="Script" uid="uid://cq474upubomsx" path="res://data/towers/TowerData.gd" id="1_tohg5"]
+[ext_resource type="Texture2D" uid="uid://de61ld1jccfwe" path="res://icon.svg" id="3_cvtot"]
+
+[resource]
+script = ExtResource("1_tohg5")
+title = "Archer_2"
+tower_texture = ExtResource("3_cvtot")
+bullet = ExtResource("1_4bb0s")
+rapidness = 2.0
+damage = 35
+radius = 175.0
+metadata/_custom_type_script = "uid://cq474upubomsx"

@@ -1,0 +1,48 @@
+[gd_scene format=3 uid="uid://b3haemgo6lvnb"]
+
+[ext_resource type="Script" uid="uid://1r1648wgk0oq" path="res://scenes/bullets/Bullet.gd" id="1_jtypa"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jtypa"]
+size = Vector2(28, 6)
+
+[sub_resource type="Gradient" id="Gradient_jtypa"]
+colors = PackedColorArray(2.1382592, 0.6137188, 0, 1, 1.224127, 0.3825492, 0, 0.11372549)
+
+[sub_resource type="Curve" id="Curve_jtypa"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -2.0790927, 0.0, 0, 0]
+point_count = 2
+
+[node name="Bullet" type="Area2D" unique_id=1893233085]
+collision_mask = 2
+script = ExtResource("1_jtypa")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=869743922]
+position = Vector2(3, 0)
+shape = SubResource("RectangleShape2D_jtypa")
+
+[node name="Line2D" type="Line2D" parent="." unique_id=2053896015]
+position = Vector2(-12, 0)
+points = PackedVector2Array(25, 0, -1, 0)
+width = 3.0
+gradient = SubResource("Gradient_jtypa")
+begin_cap_mode = 2
+end_cap_mode = 2
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="." unique_id=215313029]
+position = Vector2(8, 0)
+emitting = false
+amount = 32
+one_shot = true
+speed_scale = 10.0
+explosiveness = 0.69
+local_coords = true
+direction = Vector2(-1, 0)
+gravity = Vector2(0, 0)
+initial_velocity_min = 10.0
+initial_velocity_max = 25.0
+scale_amount_min = 2.0
+scale_amount_max = 2.0
+scale_amount_curve = SubResource("Curve_jtypa")
+color = Color(1, 0.34901962, 0, 1)
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]

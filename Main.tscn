@@ -1,0 +1,33 @@
+[gd_scene format=3 uid="uid://bk32bpv17lvb0"]
+
+[ext_resource type="Script" uid="uid://bi84hhbmfoqqb" path="res://Main.gd" id="1_glv2v"]
+[ext_resource type="Script" uid="uid://cmp64sb33hpc5" path="res://Layers.gd" id="2_uu6xs"]
+[ext_resource type="PackedScene" uid="uid://cs26mhn4vnqxg" path="res://scenes/screens/main_menu_screen/MainMenuScreen.tscn" id="3_cm0pq"]
+[ext_resource type="PackedScene" uid="uid://dcakup8flmjtf" path="res://scenes/screens/battle_screen/BattleScreen.tscn" id="4_fos0i"]
+
+[node name="Main" type="Node2D" unique_id=1095629283]
+script = ExtResource("1_glv2v")
+
+[node name="Layers" type="Node" parent="." unique_id=1597381000]
+script = ExtResource("2_uu6xs")
+
+[node name="ScreenLayer" type="CanvasLayer" parent="Layers" unique_id=157827990]
+unique_name_in_owner = true
+follow_viewport_enabled = true
+
+[node name="MainMenuScreen" parent="Layers/ScreenLayer" unique_id=513065216 instance=ExtResource("3_cm0pq")]
+
+[node name="BattleScreen" parent="Layers/ScreenLayer" unique_id=1271751535 instance=ExtResource("4_fos0i")]
+visible = false
+
+[node name="BattleLayer" type="CanvasLayer" parent="Layers" unique_id=43147556]
+unique_name_in_owner = true
+layer = 2
+
+[node name="HUDLayer" type="CanvasLayer" parent="Layers" unique_id=854972875]
+unique_name_in_owner = true
+layer = 10
+
+[node name="WindowLayer" type="CanvasLayer" parent="Layers" unique_id=513215287]
+unique_name_in_owner = true
+layer = 30

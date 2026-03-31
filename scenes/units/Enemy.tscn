@@ -1,0 +1,50 @@
+[gd_scene format=3 uid="uid://b2ppypg6hdfym"]
+
+[ext_resource type="Script" uid="uid://cocgp8sbrd5da" path="res://scenes/units/Enemy.gd" id="1_rmvmi"]
+[ext_resource type="Texture2D" uid="uid://bpr1du03vvg18" path="res://assets/units/ACS_Preview.png" id="2_rmvmi"]
+[ext_resource type="Material" uid="uid://d2wd47l16qn7e" path="res://materials/blend_add.material" id="3_20l3p"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rmvmi"]
+size = Vector2(46, 37)
+
+[sub_resource type="Curve" id="Curve_rmvmi"]
+_data = [Vector2(0, 0), 0.0, 6.479656, 0, 0, Vector2(0.5547445, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[node name="Enemy" type="PathFollow2D" unique_id=21084520]
+loop = false
+script = ExtResource("1_rmvmi")
+
+[node name="Icon" type="Sprite2D" parent="." unique_id=660789851]
+rotation = -1.5707964
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_rmvmi")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1852383422]
+unique_name_in_owner = true
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=2090038576]
+position = Vector2(-2, 0.5)
+shape = SubResource("RectangleShape2D_rmvmi")
+
+[node name="DestroyParts" type="CPUParticles2D" parent="." unique_id=1507730763]
+unique_name_in_owner = true
+material = ExtResource("3_20l3p")
+emitting = false
+amount = 32
+one_shot = true
+speed_scale = 2.0
+explosiveness = 0.84
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 10.0
+initial_velocity_max = 50.0
+angle_min = -720.0
+angle_max = 720.0
+scale_amount_min = 2.0
+scale_amount_max = 10.0
+scale_amount_curve = SubResource("Curve_rmvmi")
+color = Color(1.093983, 0.23562965, 0, 1)
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

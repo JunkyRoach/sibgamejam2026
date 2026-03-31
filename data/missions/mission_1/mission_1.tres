@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="MissionData" load_steps=6 format=3 uid="uid://3kv7yccrpli3"]
+
+[ext_resource type="Script" uid="uid://chm6ihwh27xlo" path="res://data/MissionData.gd" id="1_4lb88"]
+[ext_resource type="Script" uid="uid://b8vp5fo8nh8dj" path="res://data/WaveData.gd" id="2_0fo07"]
+[ext_resource type="Resource" uid="uid://dbfl4jn1q1b3i" path="res://data/missions/mission_1/wave_1_1.tres" id="3_t221n"]
+[ext_resource type="Resource" uid="uid://wd83fppfhv71" path="res://data/missions/mission_1/wave_1_2.tres" id="4_bkcp4"]
+[ext_resource type="Resource" uid="uid://cuddww72n8dpy" path="res://data/missions/mission_1/wave_1_3.tres" id="5_6bkkn"]
+
+[resource]
+script = ExtResource("1_4lb88")
+title = "Mission Title"
+mission_life = 5
+start_game_currency = 150
+waves = Array[ExtResource("2_0fo07")]([ExtResource("3_t221n"), ExtResource("4_bkcp4"), ExtResource("5_6bkkn")])
+metadata/_custom_type_script = "uid://chm6ihwh27xlo"

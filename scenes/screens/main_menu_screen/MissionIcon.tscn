@@ -1,0 +1,42 @@
+[gd_scene load_steps=3 format=3 uid="uid://b63nyfauq5jmq"]
+
+[ext_resource type="Script" uid="uid://7wsr0r6prno1" path="res://scenes/screens/main_menu_screen/MissionIcon.gd" id="1_f3436"]
+[ext_resource type="Resource" uid="uid://3kv7yccrpli3" path="res://data/missions/mission_1/mission_1.tres" id="2_k36cf"]
+
+[node name="MissionIcon" type="Node2D"]
+script = ExtResource("1_f3436")
+mission_data = ExtResource("2_k36cf")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+custom_minimum_size = Vector2(128, 128)
+offset_right = 115.0
+offset_bottom = 96.0
+color = Color(0.983103, 0.353999, 0.317175, 1)
+
+[node name="MissionLabel" type="Label" parent="ColorRect"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -36.5
+offset_top = -23.0
+offset_right = 36.5
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 7
+theme_override_font_sizes/font_size = 24
+text = "Mission 1"
+
+[node name="TapArea" type="TextureButton" parent="ColorRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[connection signal="pressed" from="ColorRect/TapArea" to="." method="_on_tap_area_pressed"]

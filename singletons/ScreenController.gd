@@ -1,0 +1,4 @@
+extends Node
+
+signal battle_screen_loaded
+signal main_menu_screen_loaded

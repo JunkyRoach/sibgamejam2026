@@ -1,0 +1,88 @@
+[gd_scene format=3 uid="uid://286lwgnq1yyy"]
+
+[ext_resource type="Script" uid="uid://decd76wwym6pj" path="res://scenes/towers/Tower.gd" id="1_cqx8d"]
+[ext_resource type="Texture2D" uid="uid://cp5jk5n868ccu" path="res://assets/towers/BTR_Tower.png" id="2_8udu1"]
+[ext_resource type="PackedScene" uid="uid://b3haemgo6lvnb" path="res://scenes/bullets/Bullet.tscn" id="2_aoo5e"]
+[ext_resource type="Texture2D" uid="uid://hni3w6lf0bit" path="res://assets/towers/Block_A_02.png" id="2_yji4s"]
+[ext_resource type="Texture2D" uid="uid://cdnt5tdusqnd6" path="res://assets/towers/BTR_Shot01.png" id="3_62khf"]
+[ext_resource type="Texture2D" uid="uid://d36dv787ub3pq" path="res://assets/towers/BTR_Shot02.png" id="4_yji4s"]
+[ext_resource type="Texture2D" uid="uid://dekkqxnk1uey5" path="res://assets/towers/BTR_Fire_01.png" id="6_ig0xk"]
+[ext_resource type="Texture2D" uid="uid://ckpcdivr86b1k" path="res://assets/towers/BTR_Fire_02.png" id="7_aoo5e"]
+[ext_resource type="Texture2D" uid="uid://ccwyyg4kcjcp8" path="res://assets/towers/BTR_Fire_03.png" id="8_av7pv"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ht4cy"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_8udu1")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_62khf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_yji4s")
+}],
+"loop": true,
+"name": &"shoot",
+"speed": 15.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_cmp23"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_ig0xk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_aoo5e")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_av7pv")
+}],
+"loop": true,
+"name": &"default",
+"speed": 15.0
+}]
+
+[node name="Tower" type="Node2D" unique_id=725541815]
+script = ExtResource("1_cqx8d")
+bullet_scene = ExtResource("2_aoo5e")
+attack_range = 1000.0
+
+[node name="BlockA02" type="Sprite2D" parent="." unique_id=1844037176]
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("2_yji4s")
+
+[node name="SRT" type="Node2D" parent="." unique_id=12534766]
+
+[node name="Marker2D" type="Marker2D" parent="SRT" unique_id=1235185185]
+unique_name_in_owner = true
+position = Vector2(52, -4)
+
+[node name="Marker2D2" type="Marker2D" parent="SRT" unique_id=508773805]
+unique_name_in_owner = true
+position = Vector2(52, 6)
+
+[node name="AnimatedSprite" type="AnimatedSprite2D" parent="SRT" unique_id=440344876]
+unique_name_in_owner = true
+position = Vector2(12, 0)
+rotation = -1.5707964
+sprite_frames = SubResource("SpriteFrames_ht4cy")
+autoplay = "default"
+frame_progress = 0.7807771
+
+[node name="ShotVFX" type="AnimatedSprite2D" parent="SRT/AnimatedSprite" unique_id=506076130]
+unique_name_in_owner = true
+position = Vector2(-1.847744e-06, 43)
+sprite_frames = SubResource("SpriteFrames_cmp23")
+autoplay = "default"
+frame_progress = 0.57235336
+
+[node name="Timer" type="Timer" parent="." unique_id=1066786598]
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
