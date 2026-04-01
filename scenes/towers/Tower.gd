@@ -1,4 +1,7 @@
 extends Node2D
+class_name Tower
+
+static var tower:Tower
 
 @export var bullet_scene:PackedScene
 @export var attack_range:float = 300.0
@@ -14,6 +17,7 @@ var current_target:Enemy
 
 func _ready() -> void:
 	timer.wait_time = reload_time
+	tower = self
 	timer.start()
 	pass
 
@@ -25,12 +29,14 @@ func _draw() -> void:
 
 
 func _process(delta: float) -> void:
-	current_target = EnemyManager.get_dangerous_enemy_in_range(self.global_position, attack_range)
+	#current_target = EnemyManager.get_dangerous_enemy_in_range(self.global_position, attack_range)
+	
 	if current_target!=null:
 		animated_sprite.play("shoot")
 		%ShotVFX.visible = true
 		srt.look_at(current_target.global_position)
 	else:
+		current_target = EnemyManager.get_random_enemy()
 		animated_sprite.play("default")
 		%ShotVFX.visible = false
 	queue_redraw()

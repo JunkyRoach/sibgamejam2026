@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="EnemyData" load_steps=2 format=3 uid="uid://bk1j3qqcruaop"]
+[gd_resource type="Resource" script_class="EnemyData" format=3 uid="uid://bk1j3qqcruaop"]
 
 [ext_resource type="Script" uid="uid://gfrj2mwpwopg" path="res://data/EnemyData.gd" id="1_yshkg"]
 
@@ -6,7 +6,7 @@
 script = ExtResource("1_yshkg")
 title = "Fat Enemy "
 reach_path_damage = 0
-speed = 50.0
-max_hp = 500
+speed = 20.0
+max_hp = 30
 game_currency_for_kill = 50
 metadata/_custom_type_script = "uid://gfrj2mwpwopg"

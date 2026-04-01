@@ -8,14 +8,15 @@
 [ext_resource type="Resource" uid="uid://cu6o7dr525duq" path="res://data/enemies/fast_enemy.tres" id="5_very3"]
 [ext_resource type="Resource" uid="uid://bk1j3qqcruaop" path="res://data/enemies/fat_enemy.tres" id="6_aap7m"]
 
-[sub_resource type="Curve2D" id="Curve2D_yc5af"]
-_data = {
-"points": PackedVector2Array(0, 0, 0, 0, 1416, 466, 101.81818, 78.181816, -101.81818, -78.181816, 872, 451, 80.90909, 75.454544, -80.90909, -75.454544, 835, 153, 57.272724, -20.90909, -57.272724, 20.90909, 542, 118, 0, 0, 0, 0, 371, 176, 0, 0, 0, 0, 301, 498, 0, 0, 0, 0, -146, 517)
-}
-point_count = 7
-
 [node name="BattleScreen" type="Node2D" unique_id=1481519639]
 script = ExtResource("1_ug4ku")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=471475570]
+offset_left = -54.0
+offset_top = -43.0
+offset_right = 1378.0
+offset_bottom = 784.0
+color = Color(0, 0, 0, 1)
 
 [node name="Label" type="Label" parent="." unique_id=1426472256]
 offset_right = 1277.0
@@ -26,31 +27,29 @@ text = "BattleScreen"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Path2D" type="Path2D" parent="." unique_id=1928497176]
-curve = SubResource("Curve2D_yc5af")
-
 [node name="Tower" parent="." unique_id=363748653 instance=ExtResource("3_cknin")]
-position = Vector2(531, 246)
-attack_range = 300.0
+position = Vector2(634, 377)
+attack_range = null
 
-[node name="Tower2" parent="." unique_id=800543235 instance=ExtResource("3_cknin")]
-position = Vector2(184, 365)
-attack_range = 300.0
+[node name="Tower2" parent="." unique_id=725541815 instance=ExtResource("3_cknin")]
+position = Vector2(681, 376)
+attack_range = null
 
-[node name="Tower3" parent="." unique_id=124723171 instance=ExtResource("3_cknin")]
-position = Vector2(457, 464)
-attack_range = 300.0
+[node name="Tower3" parent="." unique_id=1892238499 instance=ExtResource("3_cknin")]
+position = Vector2(682, 330)
+attack_range = null
 
-[node name="Tower4" parent="." unique_id=1971516041 instance=ExtResource("3_cknin")]
-position = Vector2(990, 334)
-attack_range = 300.0
+[node name="Tower4" parent="." unique_id=271007363 instance=ExtResource("3_cknin")]
+position = Vector2(634, 329)
+attack_range = null
 
-[node name="EnemyFactory" type="Node" parent="." unique_id=875393463 node_paths=PackedStringArray("path")]
+[node name="EnemyFactory" type="Node" parent="." unique_id=875393463 node_paths=PackedStringArray("enemy_layer")]
 script = ExtResource("2_76kaa")
-path = NodePath("../Path2D")
+enemy_layer = NodePath("..")
 test_mobs = Array[ExtResource("3_55kx5")]([ExtResource("4_n65b1"), ExtResource("5_very3"), ExtResource("6_aap7m")])
 
 [node name="Timer" type="Timer" parent="EnemyFactory" unique_id=1550879575]
+wait_time = 0.2
 autostart = true
 
 [connection signal="timeout" from="EnemyFactory/Timer" to="EnemyFactory" method="_on_timer_timeout"]

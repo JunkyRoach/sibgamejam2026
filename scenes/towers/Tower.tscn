@@ -50,6 +50,7 @@ animations = [{
 }]
 
 [node name="Tower" type="Node2D" unique_id=725541815]
+scale = Vector2(0.5, 0.5)
 script = ExtResource("1_cqx8d")
 bullet_scene = ExtResource("2_aoo5e")
 attack_range = 1000.0
@@ -59,6 +60,7 @@ scale = Vector2(0.75, 0.75)
 texture = ExtResource("2_yji4s")
 
 [node name="SRT" type="Node2D" parent="." unique_id=12534766]
+z_index = 100
 
 [node name="Marker2D" type="Marker2D" parent="SRT" unique_id=1235185185]
 unique_name_in_owner = true

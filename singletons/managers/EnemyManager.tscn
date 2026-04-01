@@ -1,11 +1,11 @@
-[gd_scene load_steps=2 format=3 uid="uid://bhimk81gpinrc"]
+[gd_scene format=3 uid="uid://bhimk81gpinrc"]
 
 [ext_resource type="Script" uid="uid://db17mvpi2o4l6" path="res://singletons/managers/EnemyManager.gd" id="1_vvdbj"]
 
-[node name="EnemyManager" type="Node"]
+[node name="EnemyManager" type="Node" unique_id=816277159]
 script = ExtResource("1_vvdbj")
 
-[node name="Timer" type="Timer" parent="."]
+[node name="Timer" type="Timer" parent="." unique_id=1597223424]
 wait_time = 0.5
 autostart = true
 
