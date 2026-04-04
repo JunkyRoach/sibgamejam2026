@@ -8,6 +8,7 @@ class_name TowerData
 @export var damage:int
 @export var radius:float
 
+@export var base_cost:int
 @export var upgrade_cost:int
 
 @export var next_level_data:TowerData

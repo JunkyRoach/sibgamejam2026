@@ -7,6 +7,7 @@
 [ext_resource type="Resource" uid="uid://ds380o3r2d51q" path="res://data/enemies/common_enemy.tres" id="4_n65b1"]
 [ext_resource type="Resource" uid="uid://cu6o7dr525duq" path="res://data/enemies/fast_enemy.tres" id="5_very3"]
 [ext_resource type="Resource" uid="uid://bk1j3qqcruaop" path="res://data/enemies/fat_enemy.tres" id="6_aap7m"]
+[ext_resource type="PackedScene" uid="uid://jxy88eee4csd" path="res://scenes/towers/BuildBlock.tscn" id="8_very3"]
 
 [node name="BattleScreen" type="Node2D" unique_id=1481519639]
 script = ExtResource("1_ug4ku")
@@ -28,20 +29,20 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Tower" parent="." unique_id=363748653 instance=ExtResource("3_cknin")]
-position = Vector2(634, 377)
-attack_range = null
+position = Vector2(625, 391)
+attack_range = 300.0
 
 [node name="Tower2" parent="." unique_id=725541815 instance=ExtResource("3_cknin")]
-position = Vector2(681, 376)
-attack_range = null
+position = Vector2(689, 391)
+attack_range = 300.0
 
 [node name="Tower3" parent="." unique_id=1892238499 instance=ExtResource("3_cknin")]
-position = Vector2(682, 330)
-attack_range = null
+position = Vector2(689, 327)
+attack_range = 300.0
 
 [node name="Tower4" parent="." unique_id=271007363 instance=ExtResource("3_cknin")]
-position = Vector2(634, 329)
-attack_range = null
+position = Vector2(625, 327)
+attack_range = 300.0
 
 [node name="EnemyFactory" type="Node" parent="." unique_id=875393463 node_paths=PackedStringArray("enemy_layer")]
 script = ExtResource("2_76kaa")
@@ -51,5 +52,29 @@ test_mobs = Array[ExtResource("3_55kx5")]([ExtResource("4_n65b1"), ExtResource("
 [node name="Timer" type="Timer" parent="EnemyFactory" unique_id=1550879575]
 wait_time = 0.2
 autostart = true
+
+[node name="BuildBlock" parent="." unique_id=368033225 instance=ExtResource("8_very3")]
+position = Vector2(752, 390)
+
+[node name="BuildBlock2" parent="." unique_id=1769877164 instance=ExtResource("8_very3")]
+position = Vector2(753, 328)
+
+[node name="BuildBlock3" parent="." unique_id=1610665565 instance=ExtResource("8_very3")]
+position = Vector2(690, 264)
+
+[node name="BuildBlock4" parent="." unique_id=671243627 instance=ExtResource("8_very3")]
+position = Vector2(625, 263)
+
+[node name="BuildBlock5" parent="." unique_id=827407612 instance=ExtResource("8_very3")]
+position = Vector2(561, 327)
+
+[node name="BuildBlock6" parent="." unique_id=1436476130 instance=ExtResource("8_very3")]
+position = Vector2(561, 391)
+
+[node name="BuildBlock7" parent="." unique_id=393188289 instance=ExtResource("8_very3")]
+position = Vector2(625, 454)
+
+[node name="BuildBlock8" parent="." unique_id=877666846 instance=ExtResource("8_very3")]
+position = Vector2(689, 454)
 
 [connection signal="timeout" from="EnemyFactory/Timer" to="EnemyFactory" method="_on_timer_timeout"]

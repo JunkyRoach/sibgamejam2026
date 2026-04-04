@@ -1,6 +1,15 @@
 extends Node2D
 class_name Tower
 
+static var _scene:PackedScene = preload("res://scenes/towers/Tower.tscn")
+
+static func spawn_tower(p_pos:Vector2):
+	var _tower = _scene.instantiate()
+	_tower.global_position = p_pos
+	BattleScreen.screen.add_child(_tower)
+	
+	pass
+
 static var tower:Tower
 
 @export var bullet_scene:PackedScene
@@ -10,10 +19,11 @@ static var tower:Tower
 @onready var timer: Timer = $Timer
 
 @onready var srt: Node2D = $SRT
-@onready var animated_sprite: AnimatedSprite2D = %AnimatedSprite
+
 
 
 var current_target:Enemy
+
 
 func _ready() -> void:
 	timer.wait_time = reload_time
@@ -29,27 +39,20 @@ func _draw() -> void:
 
 
 func _process(delta: float) -> void:
-	#current_target = EnemyManager.get_dangerous_enemy_in_range(self.global_position, attack_range)
 	
 	if current_target!=null:
-		animated_sprite.play("shoot")
-		%ShotVFX.visible = true
 		srt.look_at(current_target.global_position)
 	else:
 		current_target = EnemyManager.get_random_enemy()
-		animated_sprite.play("default")
-		%ShotVFX.visible = false
 	queue_redraw()
 
 func attack():
 	if current_target==null:
 		return
 	var bullet:Bullet = bullet_scene.instantiate()
+	bullet.update_data(preload("res://data/bullets/laser_base.tres"))
 	Layers.BATTLE_LAYER.add_child(bullet)
-	if randf()>0.5:
-		bullet.global_position =%Marker2D.global_position
-	else:
-		bullet.global_position =%Marker2D2.global_position
+	bullet.global_position =%Marker2D.global_position
 	bullet.rotation = srt.rotation
 	bullet.direction = Vector2.from_angle(bullet.rotation)
 	

@@ -16,5 +16,6 @@ static func hide_screen():
 	
 
 func _ready() -> void:
+
 	screen = self
 	pass

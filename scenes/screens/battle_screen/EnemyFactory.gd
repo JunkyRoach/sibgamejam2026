@@ -6,6 +6,7 @@ extends Node
 @export var test_mobs:Array[EnemyData] = []
 
 func _ready() -> void:
+	randomize()
 	#GameController.batlle_started.connect(spawn_mobs)
 	
 	pass
