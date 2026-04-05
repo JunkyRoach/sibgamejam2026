@@ -24,10 +24,12 @@ func spawn_mobs():
 
 func _on_timer_timeout() -> void:
 	var enemy = Enemy.instantiate(test_mobs.pick_random())
-	if randf() > 0.5:
-		enemy.global_position = Vector2(randf_range(0,1280), 0)
-	else:
-		enemy.global_position = Vector2(randf_range(0,1280), 720)
+	
+	match randi_range(0,3):
+		0:enemy.global_position = Vector2(randf_range(0,1920), 0)
+		1:enemy.global_position = Vector2(randf_range(0,1920), 1060)
+		2:enemy.global_position = Vector2(0, randf_range(0,1060))
+		3:enemy.global_position = Vector2(1920, randf_range(0,1060))
 	
 	enemy.look_at(Tower.tower.global_position)
 	enemy.direction = enemy.global_position.direction_to(Tower.tower.global_position)

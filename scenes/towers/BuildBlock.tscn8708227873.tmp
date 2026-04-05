@@ -1,0 +1,52 @@
+[gd_scene format=3 uid="uid://jxy88eee4csd"]
+
+[ext_resource type="Texture2D" uid="uid://hni3w6lf0bit" path="res://assets/towers/Block_A_02.png" id="1_a8stl"]
+[ext_resource type="Script" uid="uid://cwprr53326w8s" path="res://scenes/towers/BuildBlock.gd" id="2_yfsk8"]
+
+[node name="BuildBlock" type="Sprite2D" unique_id=368033225]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_a8stl")
+script = ExtResource("2_yfsk8")
+
+[node name="TapArea" type="TextureButton" parent="." unique_id=575248355]
+offset_left = -62.0
+offset_top = -64.0
+offset_right = 64.0
+offset_bottom = 64.0
+
+[node name="Panel" type="Panel" parent="." unique_id=496619268]
+unique_name_in_owner = true
+z_index = 1500
+offset_left = -58.0
+offset_top = -62.0
+offset_right = 70.0
+offset_bottom = 64.0
+
+[node name="Button" type="Button" parent="Panel" unique_id=1166194647]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 2.0
+offset_right = 113.0
+offset_bottom = 33.0
+text = "Laser Tower"
+
+[node name="Button2" type="Button" parent="Panel" unique_id=725544566]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 38.0
+offset_right = 111.0
+offset_bottom = 69.0
+text = "Plasma Tower"
+
+[node name="Button3" type="Button" parent="Panel" unique_id=1604696843]
+layout_mode = 0
+offset_left = 6.0
+offset_top = 78.0
+offset_right = 127.0
+offset_bottom = 109.0
+text = "RailGun Tower"
+
+[connection signal="pressed" from="TapArea" to="." method="_on_tap_area_pressed"]
+[connection signal="pressed" from="Panel/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Panel/Button2" to="." method="_on_button_2_pressed"]
+[connection signal="pressed" from="Panel/Button3" to="." method="_on_button_3_pressed"]

@@ -9,6 +9,7 @@ static func instantiate(p_enemy_data:EnemyData)->Enemy:
 	return enemy
 
 
+@onready var icon: Sprite2D = $Icon
 
 @onready var destroy_parts: CPUParticles2D = %DestroyParts
 
@@ -46,6 +47,7 @@ func _dead():
 	is_dead = true
 	self.set_deferred('monitorable', false)
 	speed = 0
+	icon.visible = false
 	EnemyManager.enemies_list.erase(self)
 	destroy_parts.restart()
 	await destroy_parts.finished

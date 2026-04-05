@@ -1,14 +1,14 @@
 [gd_resource type="Resource" script_class="TowerData" format=3 uid="uid://8isbwi44skvx"]
 
-[ext_resource type="PackedScene" uid="uid://donquya5bb3mf" path="res://scenes/bullets/Arrow.tscn" id="1_4bb0s"]
+[ext_resource type="PackedScene" uid="uid://bp1yq2best3ho" path="res://scenes/bullets/PlasmaBullet.tscn" id="1_g2gu4"]
 [ext_resource type="Script" uid="uid://cq474upubomsx" path="res://data/towers/TowerData.gd" id="1_tohg5"]
-[ext_resource type="Texture2D" uid="uid://de61ld1jccfwe" path="res://icon.svg" id="3_cvtot"]
+[ext_resource type="Texture2D" uid="uid://bjypokgx1bwx8" path="res://assets/towers/railgun_old/tower_railgun_lvl1.png" id="3_g2gu4"]
 
 [resource]
 script = ExtResource("1_tohg5")
-title = "Archer_2"
-tower_texture = ExtResource("3_cvtot")
-bullet = ExtResource("1_4bb0s")
+title = "Plasma Turret"
+tower_texture = ExtResource("3_g2gu4")
+bullet_scene = ExtResource("1_g2gu4")
 rapidness = 2.0
 damage = 35
 radius = 175.0

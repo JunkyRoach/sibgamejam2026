@@ -15,13 +15,15 @@ script = ExtResource("1_ug4ku")
 [node name="ColorRect" type="ColorRect" parent="." unique_id=471475570]
 offset_left = -54.0
 offset_top = -43.0
-offset_right = 1378.0
-offset_bottom = 784.0
+offset_right = 2006.0
+offset_bottom = 1166.0
 color = Color(0, 0, 0, 1)
 
 [node name="Label" type="Label" parent="." unique_id=1426472256]
-offset_right = 1277.0
-offset_bottom = 50.0
+offset_left = 351.0
+offset_top = 23.0
+offset_right = 1628.0
+offset_bottom = 73.0
 theme_override_constants/outline_size = 10
 theme_override_font_sizes/font_size = 36
 text = "BattleScreen"
@@ -29,19 +31,19 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Tower" parent="." unique_id=363748653 instance=ExtResource("3_cknin")]
-position = Vector2(625, 391)
+position = Vector2(927, 565)
 attack_range = 300.0
 
 [node name="Tower2" parent="." unique_id=725541815 instance=ExtResource("3_cknin")]
-position = Vector2(689, 391)
+position = Vector2(991, 565)
 attack_range = 300.0
 
 [node name="Tower3" parent="." unique_id=1892238499 instance=ExtResource("3_cknin")]
-position = Vector2(689, 327)
+position = Vector2(991, 501)
 attack_range = 300.0
 
 [node name="Tower4" parent="." unique_id=271007363 instance=ExtResource("3_cknin")]
-position = Vector2(625, 327)
+position = Vector2(927, 501)
 attack_range = 300.0
 
 [node name="EnemyFactory" type="Node" parent="." unique_id=875393463 node_paths=PackedStringArray("enemy_layer")]
@@ -54,45 +56,45 @@ wait_time = 0.2
 autostart = true
 
 [node name="BuildBlock" parent="." unique_id=368033225 instance=ExtResource("8_very3")]
-position = Vector2(752, 390)
+position = Vector2(1054, 564)
 
 [node name="BuildBlock2" parent="." unique_id=1769877164 instance=ExtResource("8_very3")]
-position = Vector2(753, 328)
+position = Vector2(1055, 502)
 
 [node name="BuildBlock9" parent="." unique_id=595301083 instance=ExtResource("8_very3")]
-position = Vector2(816, 389)
+position = Vector2(1118, 563)
 
 [node name="BuildBlock10" parent="." unique_id=535614076 instance=ExtResource("8_very3")]
-position = Vector2(817, 327)
+position = Vector2(1119, 501)
 
 [node name="BuildBlock11" parent="." unique_id=1041127072 instance=ExtResource("8_very3")]
-position = Vector2(881, 389)
+position = Vector2(1183, 563)
 
 [node name="BuildBlock12" parent="." unique_id=582727851 instance=ExtResource("8_very3")]
-position = Vector2(882, 327)
+position = Vector2(1184, 501)
 
 [node name="BuildBlock13" parent="." unique_id=1515996683 instance=ExtResource("8_very3")]
-position = Vector2(946, 389)
+position = Vector2(1248, 563)
 
 [node name="BuildBlock14" parent="." unique_id=583805788 instance=ExtResource("8_very3")]
-position = Vector2(947, 327)
+position = Vector2(1249, 501)
 
 [node name="BuildBlock3" parent="." unique_id=1610665565 instance=ExtResource("8_very3")]
-position = Vector2(690, 264)
+position = Vector2(992, 438)
 
 [node name="BuildBlock4" parent="." unique_id=671243627 instance=ExtResource("8_very3")]
-position = Vector2(625, 263)
+position = Vector2(927, 437)
 
 [node name="BuildBlock5" parent="." unique_id=827407612 instance=ExtResource("8_very3")]
-position = Vector2(561, 327)
+position = Vector2(863, 501)
 
 [node name="BuildBlock6" parent="." unique_id=1436476130 instance=ExtResource("8_very3")]
-position = Vector2(561, 391)
+position = Vector2(863, 565)
 
 [node name="BuildBlock7" parent="." unique_id=393188289 instance=ExtResource("8_very3")]
-position = Vector2(625, 454)
+position = Vector2(927, 628)
 
 [node name="BuildBlock8" parent="." unique_id=877666846 instance=ExtResource("8_very3")]
-position = Vector2(689, 454)
+position = Vector2(991, 628)
 
 [connection signal="timeout" from="EnemyFactory/Timer" to="EnemyFactory" method="_on_timer_timeout"]

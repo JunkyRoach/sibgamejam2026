@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="TowerData" format=3 uid="uid://jpab42hlxnrf"]
+
+[ext_resource type="Script" uid="uid://cq474upubomsx" path="res://data/towers/TowerData.gd" id="1_fi1ub"]
+[ext_resource type="PackedScene" uid="uid://fmdia7l2nhrb" path="res://scenes/bullets/RailgunBullet.tscn" id="1_ktanx"]
+[ext_resource type="Texture2D" uid="uid://duj0bwr7u660n" path="res://assets/towers/railgun_old/tower_railgun_lvl8.png" id="3_ktanx"]
+
+[resource]
+script = ExtResource("1_fi1ub")
+title = "Plasma Turret"
+tower_texture = ExtResource("3_ktanx")
+bullet_scene = ExtResource("1_ktanx")
+rapidness = 3.0
+damage = 35
+radius = 175.0
+metadata/_custom_type_script = "uid://cq474upubomsx"

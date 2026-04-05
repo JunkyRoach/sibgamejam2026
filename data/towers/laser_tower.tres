@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="TowerData" format=3 uid="uid://c2t2tedcmwpj7"]
+
+[ext_resource type="PackedScene" uid="uid://b3haemgo6lvnb" path="res://scenes/bullets/LaserBullet.tscn" id="1_rlpdn"]
+[ext_resource type="Texture2D" uid="uid://cv86f33202n6i" path="res://assets/towers/railgun_old/tower_railgun_lvl5.png" id="3_iw2t7"]
+[ext_resource type="Script" uid="uid://cq474upubomsx" path="res://data/towers/TowerData.gd" id="3_kje3p"]
+
+[resource]
+script = ExtResource("3_kje3p")
+title = "Laser Turret"
+tower_texture = ExtResource("3_iw2t7")
+bullet_scene = ExtResource("1_rlpdn")
+rapidness = 0.3
+damage = 15
+radius = 150.0
+metadata/_custom_type_script = "uid://cq474upubomsx"
