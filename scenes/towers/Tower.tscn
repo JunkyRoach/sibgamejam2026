@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://decd76wwym6pj" path="res://scenes/towers/Tower.gd" id="1_cqx8d"]
 [ext_resource type="PackedScene" uid="uid://b3haemgo6lvnb" path="res://scenes/bullets/Bullet.tscn" id="2_aoo5e"]
 [ext_resource type="Texture2D" uid="uid://hni3w6lf0bit" path="res://assets/towers/Block_A_02.png" id="2_yji4s"]
-[ext_resource type="Texture2D" uid="uid://c7ms8pfqqajd1" path="res://assets/towers/railgun/tower_railgun_lvl3.png" id="4_62khf"]
+[ext_resource type="Texture2D" uid="uid://c7ms8pfqqajd1" path="res://assets/towers/railgun_old/tower_railgun_lvl3.png" id="4_62khf"]
 
 [node name="Tower" type="Node2D" unique_id=725541815]
 script = ExtResource("1_cqx8d")

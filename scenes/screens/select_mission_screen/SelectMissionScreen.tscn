@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://bdsdffj2m2sp8"]
+
+[ext_resource type="Script" uid="uid://c21wjss74memm" path="res://scenes/screens/select_mission_screen/SelectMissionScreen.gd" id="1_8hl5m"]
+
+[node name="SelectMissionScreen" type="Node2D" unique_id=603072752]
+script = ExtResource("1_8hl5m")

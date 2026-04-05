@@ -1,15 +1,15 @@
-[gd_scene load_steps=3 format=3 uid="uid://cs26mhn4vnqxg"]
+[gd_scene format=3 uid="uid://cs26mhn4vnqxg"]
 
 [ext_resource type="Script" uid="uid://bwtq2n2or387m" path="res://scenes/screens/main_menu_screen/MainMenuScreen.gd" id="1_xi22d"]
 [ext_resource type="PackedScene" uid="uid://b63nyfauq5jmq" path="res://scenes/screens/main_menu_screen/MissionIcon.tscn" id="2_lb3se"]
 
-[node name="MainMenuScreen" type="Node2D"]
+[node name="MainMenuScreen" type="Node2D" unique_id=1599603681]
 script = ExtResource("1_xi22d")
 
-[node name="MissionIcon" parent="." instance=ExtResource("2_lb3se")]
+[node name="MissionIcon" parent="." unique_id=673718084 instance=ExtResource("2_lb3se")]
 position = Vector2(251, 169)
 
-[node name="Label" type="Label" parent="."]
+[node name="Label" type="Label" parent="." unique_id=2127397665]
 offset_right = 1277.0
 offset_bottom = 50.0
 theme_override_constants/outline_size = 10

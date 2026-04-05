@@ -16,5 +16,5 @@ func _update_icon():
 
 
 func _on_tap_area_pressed() -> void:
-	BattleScreen.show_screen(mission_data)
-	pass # Replace with function body.
+	ScreenManager.show_battle_screen(mission_data)
+	

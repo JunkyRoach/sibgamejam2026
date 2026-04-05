@@ -23,5 +23,5 @@ func enemy_reach_end(p_enemy_data:EnemyData):
 	mission_hp -=p_enemy_data.reach_path_damage
 	if mission_hp <= 0:
 		mission_lose.emit()
-		MainMenuScreen.show_screen()
+		ScreenManager.show_main_menu()
 	pass

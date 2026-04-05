@@ -1,21 +1,16 @@
-extends Node2D
+extends ScreenBase
 class_name MainMenuScreen
+
+static var main_menu_scene:=preload("res://scenes/screens/main_menu_screen/MainMenuScreen.tscn")
 
 static var screen:MainMenuScreen
 
 
-static func show_screen():
-	BattleScreen.hide_screen()
-	screen.visible = true
-	screen.set_process(true)
-	ScreenController.main_menu_screen_loaded.emit()
-
-static func hide_screen():
-	screen.visible = false
-	screen.set_process(false)
-	
-
 func _ready() -> void:
-
 	screen = self
+	pass
+
+
+func destroy():
+	self.queue_free()
 	pass

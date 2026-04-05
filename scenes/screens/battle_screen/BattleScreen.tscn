@@ -59,6 +59,24 @@ position = Vector2(752, 390)
 [node name="BuildBlock2" parent="." unique_id=1769877164 instance=ExtResource("8_very3")]
 position = Vector2(753, 328)
 
+[node name="BuildBlock9" parent="." unique_id=595301083 instance=ExtResource("8_very3")]
+position = Vector2(816, 389)
+
+[node name="BuildBlock10" parent="." unique_id=535614076 instance=ExtResource("8_very3")]
+position = Vector2(817, 327)
+
+[node name="BuildBlock11" parent="." unique_id=1041127072 instance=ExtResource("8_very3")]
+position = Vector2(881, 389)
+
+[node name="BuildBlock12" parent="." unique_id=582727851 instance=ExtResource("8_very3")]
+position = Vector2(882, 327)
+
+[node name="BuildBlock13" parent="." unique_id=1515996683 instance=ExtResource("8_very3")]
+position = Vector2(946, 389)
+
+[node name="BuildBlock14" parent="." unique_id=583805788 instance=ExtResource("8_very3")]
+position = Vector2(947, 327)
+
 [node name="BuildBlock3" parent="." unique_id=1610665565 instance=ExtResource("8_very3")]
 position = Vector2(690, 264)
 

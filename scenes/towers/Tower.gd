@@ -41,7 +41,8 @@ func _draw() -> void:
 func _process(delta: float) -> void:
 	
 	if current_target!=null:
-		srt.look_at(current_target.global_position)
+		srt.rotation = lerp_angle(srt.rotation, get_angle_to(current_target.global_position), 0.05)
+		#srt.look_at(current_target.global_position)
 	else:
 		current_target = EnemyManager.get_random_enemy()
 	queue_redraw()

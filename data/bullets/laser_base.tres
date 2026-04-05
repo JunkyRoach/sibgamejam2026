@@ -4,6 +4,6 @@
 
 [resource]
 script = ExtResource("1_lvtic")
-speed = 450
+speed = 700
 damage = 10
 metadata/_custom_type_script = "uid://h450j20lv4qx"

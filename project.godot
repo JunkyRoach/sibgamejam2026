@@ -22,9 +22,9 @@ config/icon="res://icon.svg"
 
 [autoload]
 
-ScreenController="*res://singletons/ScreenController.gd"
 GameController="*res://singletons/GameController.gd"
 EnemyManager="*res://singletons/managers/EnemyManager.tscn"
+Dispatcher="*uid://bf21eaob2yoff"
 
 [display]
 
