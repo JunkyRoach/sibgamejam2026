@@ -3,20 +3,31 @@
 [ext_resource type="Script" uid="uid://cocgp8sbrd5da" path="res://scenes/units/Enemy.gd" id="1_rmvmi"]
 [ext_resource type="Texture2D" uid="uid://b3288d87dfyxf" path="res://assets/units/battle_cruiser.png" id="2_20l3p"]
 [ext_resource type="Material" uid="uid://d2wd47l16qn7e" path="res://materials/blend_add.material" id="3_20l3p"]
+[ext_resource type="PackedScene" uid="uid://cllp3crqn0yvf" path="res://scenes/shields/Shield.tscn" id="4_tdpf6"]
+[ext_resource type="Texture2D" uid="uid://c18pcqhkq6b8i" path="res://addons/kenney_particle_pack/star_08.png" id="5_00u72"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rmvmi"]
-size = Vector2(46, 37)
+size = Vector2(40, 28)
 
 [sub_resource type="Curve" id="Curve_rmvmi"]
 _data = [Vector2(0, 0), 0.0, 6.479656, 0, 0, Vector2(0.5547445, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
 point_count = 3
+
+[sub_resource type="Curve" id="Curve_qg4u4"]
+_data = [Vector2(0, 0), 0.0, 2.8261645, 0, 0, Vector2(0.5093834, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -1.4367129, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="Curve" id="Curve_pn7ye"]
+_limits = [-1.0, 1.0, 0.0, 1.0]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
 
 [node name="Enemy" type="Area2D" unique_id=408055940]
 collision_layer = 2
 script = ExtResource("1_rmvmi")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2090038576]
-position = Vector2(-2, 0.5)
+position = Vector2(-2, -1)
 shape = SubResource("RectangleShape2D_rmvmi")
 
 [node name="Icon" type="Sprite2D" parent="." unique_id=660789851]
@@ -42,5 +53,27 @@ scale_amount_min = 2.0
 scale_amount_max = 10.0
 scale_amount_curve = SubResource("Curve_rmvmi")
 color = Color(1.093983, 0.23562965, 0, 1)
+
+[node name="Shield" parent="." unique_id=757745166 instance=ExtResource("4_tdpf6")]
+scale = Vector2(0.225, 0.225)
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="." unique_id=693065032]
+amount = 15
+texture = ExtResource("5_00u72")
+lifetime = 3.0
+randomness = 0.83
+emission_shape = 3
+emission_rect_extents = Vector2(540, 960)
+gravity = Vector2(0, 0)
+angular_velocity_min = -22.38
+angular_velocity_max = 37.31
+angle_min = -720.0
+angle_max = 720.0
+scale_amount_min = 0.01
+scale_amount_max = 0.2
+scale_amount_curve = SubResource("Curve_qg4u4")
+hue_variation_min = -0.6
+hue_variation_max = 0.22
+hue_variation_curve = SubResource("Curve_pn7ye")
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
