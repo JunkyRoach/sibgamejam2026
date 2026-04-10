@@ -40,20 +40,20 @@ func _ready() -> void:
 
 	
 
-func _draw() -> void:
-	draw_circle(Vector2.ZERO, attack_range,Color(0,1,0,.1), false, 2, true)
-	#if current_target != null:
-		#draw_line(Vector2.ZERO, to_local(current_target.global_position), Color.RED, 2)
+#func _draw() -> void:
+	#draw_circle(Vector2.ZERO, attack_range,Color(0,1,0,.1), false, 2, true)
+	##if current_target != null:
+		##draw_line(Vector2.ZERO, to_local(current_target.global_position), Color.RED, 2)
 
 
 func _process(delta: float) -> void:
 	
-	if current_target!=null:
-		srt.rotation = lerp_angle(srt.rotation, get_angle_to(current_target.global_position), 0.05)
+	#if current_target!=null:
+		##srt.global_rotation = lerp_angle(srt.global_rotation, get_angle_to(current_target.global_position), 0.05)
 		#srt.look_at(current_target.global_position)
-	else:
-		current_target = EnemyManager.get_closest_enemy(self.global_position)
-	queue_redraw()
+	
+	current_target = EnemyManager.get_closest_enemy(srt.global_position)
+	#queue_redraw()
 
 func attack():
 	if current_target==null:
@@ -61,7 +61,7 @@ func attack():
 	var bullet:Bullet = tower_data.bullet_scene.instantiate()
 	Layers.BATTLE_LAYER.add_child(bullet)
 	bullet.global_position =%Marker2D.global_position
-	bullet.rotation = srt.rotation
+	bullet.rotation = srt.global_rotation
 	bullet.direction = Vector2.from_angle(bullet.rotation)
 	
 	

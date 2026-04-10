@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://cv6p1bvs7j5mx"]
+
+[ext_resource type="Script" uid="uid://dnniwo630aw1l" path="res://singletons/TowerStorage.gd" id="1_fj2ws"]
+[ext_resource type="Resource" uid="uid://c2t2tedcmwpj7" path="res://data/towers/laser_tower.tres" id="2_0vstd"]
+[ext_resource type="Resource" uid="uid://8isbwi44skvx" path="res://data/towers/plasma_tower.tres" id="3_x6rmc"]
+[ext_resource type="Resource" uid="uid://jpab42hlxnrf" path="res://data/towers/railgun_tower.tres" id="4_ci82e"]
+
+[node name="TowerStorage" type="Node" unique_id=1747546700]
+script = ExtResource("1_fj2ws")
+laser_tower = ExtResource("2_0vstd")
+plasma_tower = ExtResource("3_x6rmc")
+railgun_tower = ExtResource("4_ci82e")

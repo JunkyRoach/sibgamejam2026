@@ -26,10 +26,10 @@ func _on_timer_timeout() -> void:
 	var enemy = Enemy.instantiate(test_mobs.pick_random())
 	
 	match randi_range(0,3):
-		0:enemy.global_position = Vector2(randf_range(0,1920), 0)
-		1:enemy.global_position = Vector2(randf_range(0,1920), 1060)
-		2:enemy.global_position = Vector2(0, randf_range(0,1060))
-		3:enemy.global_position = Vector2(1920, randf_range(0,1060))
+		0:enemy.global_position = Vector2(randf_range(0,540), 0)
+		1:enemy.global_position = Vector2(randf_range(0,540), 700)
+		2:enemy.global_position = Vector2(0, randf_range(0,700))
+		3:enemy.global_position = Vector2(540, randf_range(0,700))
 	
 	enemy.look_at(Tower.tower.global_position)
 	enemy.direction = enemy.global_position.direction_to(Tower.tower.global_position)

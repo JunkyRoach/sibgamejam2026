@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://cllp3crqn0yvf"]
+
+[ext_resource type="Script" uid="uid://c5ifcj6iigf37" path="res://scenes/shields/Shield.gd" id="1_w4kfx"]
+[ext_resource type="Texture2D" uid="uid://c4k0ws45p3trw" path="res://addons/kenney_particle_pack/circle_02.png" id="2_5hipi"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_oc4qr"]
+blend_mode = 1
+light_mode = 1
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_oxpwn"]
+radius = 175.07141
+
+[node name="Shield" type="Area2D" unique_id=757745166]
+collision_layer = 2
+script = ExtResource("1_w4kfx")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1426644494]
+modulate = Color(0.24313726, 1, 1, 1)
+material = SubResource("CanvasItemMaterial_oc4qr")
+texture = ExtResource("2_5hipi")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=762362190]
+shape = SubResource("CircleShape2D_oxpwn")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]

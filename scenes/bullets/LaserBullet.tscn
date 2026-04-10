@@ -20,7 +20,7 @@ damage = 10
 shape = SubResource("RectangleShape2D_jtypa")
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="." unique_id=215313029]
-position = Vector2(8, 0)
+position = Vector2(7, 0)
 emitting = false
 amount = 32
 one_shot = true
