@@ -4,19 +4,18 @@
 [ext_resource type="Script" uid="uid://b7g1lds2u25ph" path="res://scenes/screens/battle_screen/EnemyFactory.gd" id="2_76kaa"]
 [ext_resource type="Script" uid="uid://gfrj2mwpwopg" path="res://data/EnemyData.gd" id="3_55kx5"]
 [ext_resource type="PackedScene" uid="uid://286lwgnq1yyy" path="res://scenes/towers/Tower.tscn" id="3_cknin"]
-[ext_resource type="Resource" uid="uid://ds380o3r2d51q" path="res://data/enemies/common_enemy.tres" id="4_n65b1"]
-[ext_resource type="Resource" uid="uid://cu6o7dr525duq" path="res://data/enemies/fast_enemy.tres" id="5_very3"]
+[ext_resource type="PackedScene" uid="uid://ds7tji3apig37" path="res://scenes/towers/OrbitalPlatform.tscn" id="5_g4gr0"]
 [ext_resource type="Resource" uid="uid://bk1j3qqcruaop" path="res://data/enemies/fat_enemy.tres" id="6_aap7m"]
-[ext_resource type="PackedScene" uid="uid://jxy88eee4csd" path="res://scenes/towers/BuildBlock.tscn" id="8_very3"]
+[ext_resource type="Texture2D" uid="uid://dobku2ntkl4ax" path="res://assets/Vibrant Earth illustration with detailed continents.png" id="7_n65b1"]
 
 [node name="BattleScreen" type="Node2D" unique_id=1481519639]
 script = ExtResource("1_ug4ku")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=471475570]
-offset_left = -54.0
-offset_top = -43.0
-offset_right = 2006.0
-offset_bottom = 1166.0
+offset_left = -84.0
+offset_top = -47.0
+offset_right = 1976.0
+offset_bottom = 1162.0
 color = Color(0, 0, 0, 1)
 
 [node name="Label" type="Label" parent="." unique_id=1426472256]
@@ -30,71 +29,90 @@ text = "BattleScreen"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Tower" parent="." unique_id=363748653 instance=ExtResource("3_cknin")]
-position = Vector2(927, 565)
-attack_range = 300.0
-
-[node name="Tower2" parent="." unique_id=725541815 instance=ExtResource("3_cknin")]
-position = Vector2(991, 565)
-attack_range = 300.0
-
-[node name="Tower3" parent="." unique_id=1892238499 instance=ExtResource("3_cknin")]
-position = Vector2(991, 501)
-attack_range = 300.0
-
-[node name="Tower4" parent="." unique_id=271007363 instance=ExtResource("3_cknin")]
-position = Vector2(927, 501)
-attack_range = 300.0
-
 [node name="EnemyFactory" type="Node" parent="." unique_id=875393463 node_paths=PackedStringArray("enemy_layer")]
 script = ExtResource("2_76kaa")
 enemy_layer = NodePath("..")
-test_mobs = Array[ExtResource("3_55kx5")]([ExtResource("4_n65b1"), ExtResource("5_very3"), ExtResource("6_aap7m")])
+test_mobs = Array[ExtResource("3_55kx5")]([ExtResource("6_aap7m")])
 
 [node name="Timer" type="Timer" parent="EnemyFactory" unique_id=1550879575]
-wait_time = 0.2
+wait_time = 0.1
 autostart = true
 
-[node name="BuildBlock" parent="." unique_id=368033225 instance=ExtResource("8_very3")]
-position = Vector2(1054, 564)
+[node name="OrbitalPlatform" parent="." unique_id=1071205248 instance=ExtResource("5_g4gr0")]
+position = Vector2(956, 547)
+radius = 128
 
-[node name="BuildBlock2" parent="." unique_id=1769877164 instance=ExtResource("8_very3")]
-position = Vector2(1055, 502)
+[node name="RemoteTransform2D" parent="OrbitalPlatform" index="0" unique_id=2071206277]
+remote_path = NodePath("../../Tower")
 
-[node name="BuildBlock9" parent="." unique_id=595301083 instance=ExtResource("8_very3")]
-position = Vector2(1118, 563)
+[node name="RemoteTransform2D2" parent="OrbitalPlatform" index="1" unique_id=2111781341]
+remote_path = NodePath("../../Tower2")
 
-[node name="BuildBlock10" parent="." unique_id=535614076 instance=ExtResource("8_very3")]
-position = Vector2(1119, 501)
+[node name="RemoteTransform2D3" parent="OrbitalPlatform" index="2" unique_id=730626448]
+remote_path = NodePath("../../Tower3")
 
-[node name="BuildBlock11" parent="." unique_id=1041127072 instance=ExtResource("8_very3")]
-position = Vector2(1183, 563)
+[node name="RemoteTransform2D4" parent="OrbitalPlatform" index="3" unique_id=1465044734]
+remote_path = NodePath("../../Tower4")
 
-[node name="BuildBlock12" parent="." unique_id=582727851 instance=ExtResource("8_very3")]
-position = Vector2(1184, 501)
+[node name="Tower" parent="." unique_id=725541815 instance=ExtResource("3_cknin")]
+position = Vector2(1084, 547)
+scale = Vector2(0.5, 0.5)
+reload_time = 0.01
 
-[node name="BuildBlock13" parent="." unique_id=1515996683 instance=ExtResource("8_very3")]
-position = Vector2(1248, 563)
+[node name="Tower2" parent="." unique_id=1255347803 instance=ExtResource("3_cknin")]
+visible = false
+position = Vector2(956, 675)
+rotation = 1.5707964
+scale = Vector2(0.5, 0.5)
 
-[node name="BuildBlock14" parent="." unique_id=583805788 instance=ExtResource("8_very3")]
-position = Vector2(1249, 501)
+[node name="Tower3" parent="." unique_id=838560318 instance=ExtResource("3_cknin")]
+visible = false
+position = Vector2(828, 547)
+rotation = -3.1415925
+scale = Vector2(0.5, 0.5)
 
-[node name="BuildBlock3" parent="." unique_id=1610665565 instance=ExtResource("8_very3")]
-position = Vector2(992, 438)
+[node name="Tower4" parent="." unique_id=299000706 instance=ExtResource("3_cknin")]
+visible = false
+position = Vector2(956, 419)
+rotation = -1.5707964
+scale = Vector2(0.5, 0.5)
 
-[node name="BuildBlock4" parent="." unique_id=671243627 instance=ExtResource("8_very3")]
-position = Vector2(927, 437)
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1864161714]
+position = Vector2(962, 529)
 
-[node name="BuildBlock5" parent="." unique_id=827407612 instance=ExtResource("8_very3")]
-position = Vector2(863, 501)
+[node name="VibrantEarthIllustrationWithDetailedContinents" type="Sprite2D" parent="." unique_id=539920367]
+position = Vector2(959, 568)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("7_n65b1")
 
-[node name="BuildBlock6" parent="." unique_id=1436476130 instance=ExtResource("8_very3")]
-position = Vector2(863, 565)
+[node name="Button" type="Button" parent="." unique_id=890725898]
+offset_left = 850.0
+offset_top = 842.0
+offset_right = 922.0
+offset_bottom = 873.0
+text = "Damage"
 
-[node name="BuildBlock7" parent="." unique_id=393188289 instance=ExtResource("8_very3")]
-position = Vector2(927, 628)
+[node name="Button2" type="Button" parent="." unique_id=1260879839]
+offset_left = 978.0
+offset_top = 842.0
+offset_right = 1050.0
+offset_bottom = 873.0
+text = "Rapid"
 
-[node name="BuildBlock8" parent="." unique_id=877666846 instance=ExtResource("8_very3")]
-position = Vector2(991, 628)
+[node name="Button3" type="Button" parent="." unique_id=2120156754]
+offset_left = 853.0
+offset_top = 903.0
+offset_right = 925.0
+offset_bottom = 934.0
+text = "Speed"
+
+[node name="Button4" type="Button" parent="." unique_id=2058424714]
+offset_left = 979.0
+offset_top = 897.0
+offset_right = 1051.0
+offset_bottom = 928.0
+text = "+1 Turret"
 
 [connection signal="timeout" from="EnemyFactory/Timer" to="EnemyFactory" method="_on_timer_timeout"]
+
+[editable path="OrbitalPlatform"]

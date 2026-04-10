@@ -7,5 +7,5 @@ script = ExtResource("1_oefdm")
 title = "Common Enemy "
 reach_path_damage = 0
 speed = 15.0
-max_hp = 10
+max_hp = 50
 metadata/_custom_type_script = "uid://gfrj2mwpwopg"
