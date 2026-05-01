@@ -1,17 +1,17 @@
 extends Node
 
 
-@export var laser_tower:TowerData
-@export var plasma_tower:TowerData
-@export var railgun_tower:TowerData
+@export var laser_demon:TowerData
+@export var plasma_demon:TowerData
+@export var railgun_demon:TowerData
 
 
-func upgrade_laser_tower_rapidness():
-	laser_tower.rapidness *=0.9
+func upgrade_laser_demon_rapidness():
+	laser_demon.rapidness *=0.9
 	
 	pass
 
 
-func upgrade_laser_tower_damage():
-	laser_tower.damage +=1
+func upgrade_laser_demon_damage():
+	laser_demon.damage +=1
 	pass

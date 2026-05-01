@@ -1,0 +1,48 @@
+[gd_scene format=3 uid="uid://wh2rds4rx1cc"]
+
+[ext_resource type="Material" uid="uid://d2wd47l16qn7e" path="res://materials/blend_add.material" id="1_4glpt"]
+[ext_resource type="Script" uid="uid://bgp4y8uo5v05d" path="res://scenes/demons/FlameThrower.gd" id="1_vfww8"]
+[ext_resource type="Texture2D" uid="uid://djcp0j5emtitp" path="res://addons/kenney_particle_pack/fire_01.png" id="2_vfww8"]
+
+[sub_resource type="Curve" id="Curve_ia6cg"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.47453088, 1), 0.0, 0.0, 0, 0, Vector2(0.7882038, 0.9932151), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="Gradient" id="Gradient_fowts"]
+offsets = PackedFloat32Array(0, 0.18731989, 0.8270893, 1)
+colors = PackedColorArray(0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ia6cg"]
+size = Vector2(260, 99)
+
+[node name="FlameThrower" type="Node2D" unique_id=1204241412]
+script = ExtResource("1_vfww8")
+
+[node name="FireThrower" type="CPUParticles2D" parent="." unique_id=984102545]
+material = ExtResource("1_4glpt")
+amount = 50
+texture = ExtResource("2_vfww8")
+speed_scale = 2.0
+spread = 15.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 250.0
+initial_velocity_max = 350.0
+angular_velocity_min = -156.68
+angular_velocity_max = 208.91
+angle_min = -720.0
+angle_max = 720.0
+scale_amount_min = 0.2
+scale_amount_max = 0.4
+scale_amount_curve = SubResource("Curve_ia6cg")
+color = Color(1.6852883, 0.38504502, 0, 1)
+color_ramp = SubResource("Gradient_fowts")
+
+[node name="FireThrowerArea" type="Area2D" parent="." unique_id=343777185]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FireThrowerArea" unique_id=855794719]
+position = Vector2(181, 3.5)
+shape = SubResource("RectangleShape2D_ia6cg")
+
+[connection signal="area_entered" from="FireThrowerArea" to="." method="_on_fire_thrower_area_area_entered"]

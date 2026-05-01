@@ -6,15 +6,12 @@ static var battle_screen_scene:PackedScene = preload("res://scenes/screens/battl
 static var screen:BattleScreen
 
 
-var mission_data:MissionData
-
 func _ready() -> void:
 	screen = self
 	pass
 	
-func start_battle(p_mission_data:MissionData):
-	mission_data = p_mission_data
-	GameController.start_battle(mission_data)
+func start_battle():
+	GameController.start_battle()
 	
 
 

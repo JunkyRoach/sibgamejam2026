@@ -5,7 +5,7 @@ var enemies_list:Array[Enemy] = []
 func _process(delta: float) -> void:
 	for enemy:Enemy in enemies_list:
 		enemy.global_position += enemy.direction * enemy.speed * delta 
-		if enemy.global_position.distance_to(Tower.tower.global_position)<=30:
+		if enemy.global_position.distance_to(Demon.demon.global_position)<=30:
 			enemy.destroy()
 
 

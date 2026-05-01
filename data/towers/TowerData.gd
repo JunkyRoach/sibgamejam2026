@@ -2,7 +2,7 @@ extends Resource
 class_name TowerData
 
 @export var title:String
-@export var tower_texture: Texture
+@export var demon_texture: Texture
 @export var bullet_scene:PackedScene
 @export var rapidness:float
 @export var damage:int

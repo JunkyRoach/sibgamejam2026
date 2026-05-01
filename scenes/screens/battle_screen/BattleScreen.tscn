@@ -3,11 +3,10 @@
 [ext_resource type="Script" uid="uid://bb70r1l8taesx" path="res://scenes/screens/battle_screen/BattleScreen.gd" id="1_ug4ku"]
 [ext_resource type="Script" uid="uid://b7g1lds2u25ph" path="res://scenes/screens/battle_screen/EnemyFactory.gd" id="2_76kaa"]
 [ext_resource type="Script" uid="uid://gfrj2mwpwopg" path="res://data/EnemyData.gd" id="3_55kx5"]
-[ext_resource type="PackedScene" uid="uid://286lwgnq1yyy" path="res://scenes/towers/Tower.tscn" id="3_cknin"]
+[ext_resource type="PackedScene" uid="uid://286lwgnq1yyy" path="res://scenes/demons/Demon.tscn" id="3_cknin"]
 [ext_resource type="Resource" uid="uid://ds380o3r2d51q" path="res://data/enemies/common_enemy.tres" id="4_n65b1"]
 [ext_resource type="Resource" uid="uid://cu6o7dr525duq" path="res://data/enemies/fast_enemy.tres" id="5_very3"]
 [ext_resource type="Resource" uid="uid://bk1j3qqcruaop" path="res://data/enemies/fat_enemy.tres" id="6_aap7m"]
-[ext_resource type="PackedScene" uid="uid://jxy88eee4csd" path="res://scenes/towers/BuildBlock.tscn" id="8_very3"]
 
 [node name="BattleScreen" type="Node2D" unique_id=1481519639]
 script = ExtResource("1_ug4ku")
@@ -20,31 +19,21 @@ offset_bottom = 1162.0
 color = Color(0, 0, 0, 1)
 
 [node name="Label" type="Label" parent="." unique_id=1426472256]
-offset_left = 351.0
-offset_top = 23.0
-offset_right = 1628.0
-offset_bottom = 73.0
+offset_left = 11.0
+offset_top = 9.0
+offset_right = 1288.0
+offset_bottom = 59.0
 theme_override_constants/outline_size = 10
 theme_override_font_sizes/font_size = 36
 text = "BattleScreen"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Tower" parent="." unique_id=363748653 instance=ExtResource("3_cknin")]
-position = Vector2(927, 565)
-attack_range = 300.0
+[node name="Demon" parent="." unique_id=363748653 instance=ExtResource("3_cknin")]
+position = Vector2(607, 394)
+attack_range = 2500.0
 
-[node name="Tower2" parent="." unique_id=725541815 instance=ExtResource("3_cknin")]
-position = Vector2(991, 565)
-attack_range = 300.0
-
-[node name="Tower3" parent="." unique_id=1892238499 instance=ExtResource("3_cknin")]
-position = Vector2(991, 501)
-attack_range = 300.0
-
-[node name="Tower4" parent="." unique_id=271007363 instance=ExtResource("3_cknin")]
-position = Vector2(927, 501)
-attack_range = 300.0
+[node name="Camera2D" type="Camera2D" parent="Demon" unique_id=1568127467]
 
 [node name="EnemyFactory" type="Node" parent="." unique_id=875393463 node_paths=PackedStringArray("enemy_layer")]
 script = ExtResource("2_76kaa")
@@ -52,175 +41,7 @@ enemy_layer = NodePath("..")
 test_mobs = Array[ExtResource("3_55kx5")]([ExtResource("4_n65b1"), ExtResource("5_very3"), ExtResource("6_aap7m")])
 
 [node name="Timer" type="Timer" parent="EnemyFactory" unique_id=1550879575]
-wait_time = 0.2
+wait_time = 0.05
 autostart = true
-
-[node name="BuildBlock" parent="." unique_id=368033225 instance=ExtResource("8_very3")]
-position = Vector2(1054, 564)
-
-[node name="BuildBlock2" parent="." unique_id=1769877164 instance=ExtResource("8_very3")]
-position = Vector2(1055, 502)
-
-[node name="BuildBlock15" parent="." unique_id=180950544 instance=ExtResource("8_very3")]
-position = Vector2(1057, 439)
-
-[node name="BuildBlock16" parent="." unique_id=1031348648 instance=ExtResource("8_very3")]
-position = Vector2(1121, 438)
-
-[node name="BuildBlock17" parent="." unique_id=834582057 instance=ExtResource("8_very3")]
-position = Vector2(1186, 438)
-
-[node name="BuildBlock9" parent="." unique_id=595301083 instance=ExtResource("8_very3")]
-position = Vector2(1118, 563)
-
-[node name="BuildBlock10" parent="." unique_id=535614076 instance=ExtResource("8_very3")]
-position = Vector2(1119, 501)
-
-[node name="BuildBlock11" parent="." unique_id=1041127072 instance=ExtResource("8_very3")]
-position = Vector2(1183, 563)
-
-[node name="BuildBlock12" parent="." unique_id=582727851 instance=ExtResource("8_very3")]
-position = Vector2(1184, 501)
-
-[node name="BuildBlock13" parent="." unique_id=1515996683 instance=ExtResource("8_very3")]
-position = Vector2(1248, 563)
-
-[node name="BuildBlock21" parent="." unique_id=876927466 instance=ExtResource("8_very3")]
-position = Vector2(1118, 628)
-
-[node name="BuildBlock22" parent="." unique_id=954464668 instance=ExtResource("8_very3")]
-position = Vector2(1183, 628)
-
-[node name="BuildBlock23" parent="." unique_id=311000106 instance=ExtResource("8_very3")]
-position = Vector2(1248, 628)
-
-[node name="BuildBlock14" parent="." unique_id=583805788 instance=ExtResource("8_very3")]
-position = Vector2(1249, 501)
-
-[node name="BuildBlock24" parent="." unique_id=1954762167 instance=ExtResource("8_very3")]
-position = Vector2(1251, 438)
-
-[node name="BuildBlock3" parent="." unique_id=1610665565 instance=ExtResource("8_very3")]
-position = Vector2(992, 438)
-
-[node name="BuildBlock4" parent="." unique_id=671243627 instance=ExtResource("8_very3")]
-position = Vector2(927, 437)
-
-[node name="BuildBlock18" parent="." unique_id=752442085 instance=ExtResource("8_very3")]
-position = Vector2(862, 437)
-
-[node name="BuildBlock5" parent="." unique_id=827407612 instance=ExtResource("8_very3")]
-position = Vector2(863, 501)
-
-[node name="BuildBlock6" parent="." unique_id=1436476130 instance=ExtResource("8_very3")]
-position = Vector2(863, 565)
-
-[node name="BuildBlock7" parent="." unique_id=393188289 instance=ExtResource("8_very3")]
-position = Vector2(927, 628)
-
-[node name="BuildBlock19" parent="." unique_id=1834211311 instance=ExtResource("8_very3")]
-position = Vector2(864, 627)
-
-[node name="BuildBlock25" parent="." unique_id=495620174 instance=ExtResource("8_very3")]
-position = Vector2(798, 438)
-
-[node name="BuildBlock26" parent="." unique_id=268202348 instance=ExtResource("8_very3")]
-position = Vector2(799, 502)
-
-[node name="BuildBlock27" parent="." unique_id=2047993336 instance=ExtResource("8_very3")]
-position = Vector2(799, 566)
-
-[node name="BuildBlock28" parent="." unique_id=2103982425 instance=ExtResource("8_very3")]
-position = Vector2(800, 628)
-
-[node name="BuildBlock29" parent="." unique_id=1274430007 instance=ExtResource("8_very3")]
-position = Vector2(733, 437)
-
-[node name="BuildBlock33" parent="." unique_id=972362029 instance=ExtResource("8_very3")]
-position = Vector2(1056, 375)
-
-[node name="BuildBlock34" parent="." unique_id=1911744994 instance=ExtResource("8_very3")]
-position = Vector2(1120, 374)
-
-[node name="BuildBlock35" parent="." unique_id=532791948 instance=ExtResource("8_very3")]
-position = Vector2(1185, 374)
-
-[node name="BuildBlock36" parent="." unique_id=646285169 instance=ExtResource("8_very3")]
-position = Vector2(1250, 374)
-
-[node name="BuildBlock37" parent="." unique_id=1162552013 instance=ExtResource("8_very3")]
-position = Vector2(991, 374)
-
-[node name="BuildBlock38" parent="." unique_id=1145607760 instance=ExtResource("8_very3")]
-position = Vector2(926, 373)
-
-[node name="BuildBlock39" parent="." unique_id=1087686510 instance=ExtResource("8_very3")]
-position = Vector2(861, 373)
-
-[node name="BuildBlock40" parent="." unique_id=2147194971 instance=ExtResource("8_very3")]
-position = Vector2(797, 374)
-
-[node name="BuildBlock41" parent="." unique_id=1106109958 instance=ExtResource("8_very3")]
-position = Vector2(732, 373)
-
-[node name="BuildBlock30" parent="." unique_id=1816561291 instance=ExtResource("8_very3")]
-position = Vector2(734, 501)
-
-[node name="BuildBlock31" parent="." unique_id=867851924 instance=ExtResource("8_very3")]
-position = Vector2(734, 565)
-
-[node name="BuildBlock32" parent="." unique_id=466991630 instance=ExtResource("8_very3")]
-position = Vector2(735, 627)
-
-[node name="BuildBlock8" parent="." unique_id=877666846 instance=ExtResource("8_very3")]
-position = Vector2(991, 628)
-
-[node name="BuildBlock20" parent="." unique_id=218716624 instance=ExtResource("8_very3")]
-position = Vector2(1056, 628)
-
-[node name="BuildBlock42" parent="." unique_id=659892262 instance=ExtResource("8_very3")]
-position = Vector2(1117, 693)
-
-[node name="BuildBlock43" parent="." unique_id=197209534 instance=ExtResource("8_very3")]
-position = Vector2(1182, 693)
-
-[node name="BuildBlock44" parent="." unique_id=2004546855 instance=ExtResource("8_very3")]
-position = Vector2(1247, 693)
-
-[node name="BuildBlock45" parent="." unique_id=1795829534 instance=ExtResource("8_very3")]
-position = Vector2(926, 693)
-
-[node name="BuildBlock46" parent="." unique_id=790160066 instance=ExtResource("8_very3")]
-position = Vector2(863, 692)
-
-[node name="BuildBlock47" parent="." unique_id=1241359519 instance=ExtResource("8_very3")]
-position = Vector2(799, 693)
-
-[node name="BuildBlock48" parent="." unique_id=156905438 instance=ExtResource("8_very3")]
-position = Vector2(734, 692)
-
-[node name="BuildBlock51" parent="." unique_id=301370854 instance=ExtResource("8_very3")]
-position = Vector2(669, 437)
-
-[node name="BuildBlock52" parent="." unique_id=1432965703 instance=ExtResource("8_very3")]
-position = Vector2(668, 373)
-
-[node name="BuildBlock53" parent="." unique_id=1701301712 instance=ExtResource("8_very3")]
-position = Vector2(670, 501)
-
-[node name="BuildBlock54" parent="." unique_id=768042651 instance=ExtResource("8_very3")]
-position = Vector2(670, 565)
-
-[node name="BuildBlock55" parent="." unique_id=1727680260 instance=ExtResource("8_very3")]
-position = Vector2(671, 627)
-
-[node name="BuildBlock56" parent="." unique_id=2140697559 instance=ExtResource("8_very3")]
-position = Vector2(670, 692)
-
-[node name="BuildBlock49" parent="." unique_id=1347691794 instance=ExtResource("8_very3")]
-position = Vector2(990, 693)
-
-[node name="BuildBlock50" parent="." unique_id=778307168 instance=ExtResource("8_very3")]
-position = Vector2(1055, 693)
 
 [connection signal="timeout" from="EnemyFactory/Timer" to="EnemyFactory" method="_on_timer_timeout"]

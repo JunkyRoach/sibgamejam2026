@@ -16,6 +16,7 @@ follow_viewport_enabled = true
 [node name="BattleLayer" type="CanvasLayer" parent="Layers" unique_id=43147556]
 unique_name_in_owner = true
 layer = 2
+follow_viewport_enabled = true
 
 [node name="HUDLayer" type="CanvasLayer" parent="Layers" unique_id=854972875]
 unique_name_in_owner = true

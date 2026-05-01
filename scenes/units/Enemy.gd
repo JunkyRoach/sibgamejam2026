@@ -26,7 +26,7 @@ func update_data(p_enemy_data:EnemyData):
 	hp = enemy_data.max_hp
 	speed = enemy_data.speed
 	EnemyManager.enemies_list.append(self)
-	
+	print()
 
 
 
@@ -34,7 +34,9 @@ func update_data(p_enemy_data:EnemyData):
 func _on_area_entered(area: Area2D) -> void:
 	if area is Bullet:
 		_take_damage(area.damage)
-
+	
+		
+	
 func _take_damage(p_damage:int):
 	hp-=p_damage
 	if hp<=0:
@@ -49,6 +51,7 @@ func _dead():
 	speed = 0
 	icon.visible = false
 	EnemyManager.enemies_list.erase(self)
+	Soul.instantiate(self.global_position)
 	destroy_parts.restart()
 	await destroy_parts.finished
 	destroy()

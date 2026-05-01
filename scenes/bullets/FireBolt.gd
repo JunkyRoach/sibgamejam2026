@@ -1,5 +1,5 @@
 extends Bullet
-class_name LaserBullet
+class_name FireBolt
 
 @onready var sprite_2d: Sprite2D = $Sprite2D
 

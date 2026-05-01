@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://286lwgnq1yyy"]
+
+[ext_resource type="Script" uid="uid://decd76wwym6pj" path="res://scenes/demons/Demon.gd" id="1_312pf"]
+[ext_resource type="PackedScene" uid="uid://b3haemgo6lvnb" path="res://scenes/bullets/FireBolt.tscn" id="2_gsk3a"]
+[ext_resource type="Texture2D" uid="uid://de61ld1jccfwe" path="res://icon.svg" id="3_5yt7f"]
+[ext_resource type="PackedScene" uid="uid://wh2rds4rx1cc" path="res://scenes/demons/FlameThrower.tscn" id="4_5yt7f"]
+
+[node name="Demon" type="Node2D" unique_id=725541815]
+script = ExtResource("1_312pf")
+firebolt_scene = ExtResource("2_gsk3a")
+attack_range = 1000.0
+
+[node name="BlockA02" type="Sprite2D" parent="." unique_id=1844037176]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_5yt7f")
+
+[node name="SRT" type="Node2D" parent="." unique_id=12534766]
+z_index = 100
+
+[node name="Marker2D" type="Marker2D" parent="SRT" unique_id=1235185185]
+unique_name_in_owner = true
+position = Vector2(15, 0)
+
+[node name="Timer" type="Timer" parent="." unique_id=1066786598]
+
+[node name="FlameThrower" parent="." unique_id=1204241412 instance=ExtResource("4_5yt7f")]
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

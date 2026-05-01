@@ -30,14 +30,14 @@ static func show_select_mission_screen():
 	
 	pass
 
-static func show_battle_screen(p_mission_data:MissionData):
+static func show_battle_screen():
 	_clear_current_screen()
 	if _battle_screen == null:
 		_battle_screen = BattleScreen.battle_screen_scene.instantiate()
 	
 	current_screen = _battle_screen
 	Layers.SCREEN_LAYER.add_child(_battle_screen)
-	_battle_screen.start_battle(p_mission_data)
+	_battle_screen.start_battle()
 	
 	pass
 

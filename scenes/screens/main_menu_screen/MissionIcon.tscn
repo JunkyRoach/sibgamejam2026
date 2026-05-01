@@ -1,19 +1,19 @@
-[gd_scene load_steps=3 format=3 uid="uid://b63nyfauq5jmq"]
+[gd_scene format=3 uid="uid://b63nyfauq5jmq"]
 
 [ext_resource type="Script" uid="uid://7wsr0r6prno1" path="res://scenes/screens/main_menu_screen/MissionIcon.gd" id="1_f3436"]
 [ext_resource type="Resource" uid="uid://3kv7yccrpli3" path="res://data/missions/mission_1/mission_1.tres" id="2_k36cf"]
 
-[node name="MissionIcon" type="Node2D"]
+[node name="MissionIcon" type="Node2D" unique_id=1750400808]
 script = ExtResource("1_f3436")
 mission_data = ExtResource("2_k36cf")
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="ColorRect" type="ColorRect" parent="." unique_id=909713191]
 custom_minimum_size = Vector2(128, 128)
 offset_right = 115.0
 offset_bottom = 96.0
 color = Color(0.983103, 0.353999, 0.317175, 1)
 
-[node name="MissionLabel" type="Label" parent="ColorRect"]
+[node name="MissionLabel" type="Label" parent="ColorRect" unique_id=854585973]
 unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 7
@@ -29,9 +29,9 @@ grow_vertical = 0
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 7
 theme_override_font_sizes/font_size = 24
-text = "Mission 1"
+text = "New GAme"
 
-[node name="TapArea" type="TextureButton" parent="ColorRect"]
+[node name="TapArea" type="TextureButton" parent="ColorRect" unique_id=1984554908]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0

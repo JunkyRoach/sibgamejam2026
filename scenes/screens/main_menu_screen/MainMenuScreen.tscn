@@ -17,36 +17,3 @@ theme_override_font_sizes/font_size = 36
 text = "Main Menu"
 horizontal_alignment = 1
 vertical_alignment = 1
-
-[node name="UpgradeLaserButton" type="Button" parent="." unique_id=1740228517]
-offset_left = 178.0
-offset_top = 715.0
-offset_right = 400.0
-offset_bottom = 791.0
-text = "Upgrade Laser Rapidness"
-
-[node name="UpgradeLaserDamageButton" type="Button" parent="." unique_id=2000823912]
-offset_left = 179.0
-offset_top = 507.0
-offset_right = 401.0
-offset_bottom = 583.0
-text = "Upgrade Laser Damage"
-
-[node name="LaserRapidness" type="Label" parent="." unique_id=1432298819]
-unique_name_in_owner = true
-offset_left = 208.0
-offset_top = 648.0
-offset_right = 378.0
-offset_bottom = 671.0
-text = "Laser Rapidness: = 1.0"
-
-[node name="LaserDamage" type="Label" parent="." unique_id=955725369]
-unique_name_in_owner = true
-offset_left = 198.0
-offset_top = 437.0
-offset_right = 368.0
-offset_bottom = 460.0
-text = "Laser Damage: = 1.0"
-
-[connection signal="pressed" from="UpgradeLaserButton" to="." method="_on_upgrade_laser_button_pressed"]
-[connection signal="pressed" from="UpgradeLaserDamageButton" to="." method="_on_upgrade_laser_damage_button_pressed"]
