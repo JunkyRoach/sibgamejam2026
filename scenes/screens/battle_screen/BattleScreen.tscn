@@ -7,6 +7,30 @@
 [ext_resource type="Resource" uid="uid://ds380o3r2d51q" path="res://data/enemies/common_enemy.tres" id="4_n65b1"]
 [ext_resource type="Resource" uid="uid://cu6o7dr525duq" path="res://data/enemies/fast_enemy.tres" id="5_very3"]
 [ext_resource type="Resource" uid="uid://bk1j3qqcruaop" path="res://data/enemies/fat_enemy.tres" id="6_aap7m"]
+[ext_resource type="Texture2D" uid="uid://bqfvjfaglwl6b" path="res://assets/tilesets/grass_and_dirt.png" id="8_very3"]
+[ext_resource type="Script" uid="uid://c6lljgyftxp4c" path="res://scenes/tiles/TileMapLayer.gd" id="9_rp0kr"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_aap7m"]
+texture = ExtResource("8_very3")
+margins = Vector2i(191, 98)
+separation = Vector2i(14, 14)
+texture_region_size = Vector2i(256, 256)
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+3:1/0 = 0
+2:1/0 = 0
+1:1/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_pl3hk"]
+tile_size = Vector2i(256, 256)
+terrain_set_0/mode = 0
+terrain_set_0/terrain_0/name = "Terrain 0"
+terrain_set_0/terrain_0/color = Color(0.5, 0.34375, 0.25, 1)
+sources/0 = SubResource("TileSetAtlasSource_aap7m")
 
 [node name="BattleScreen" type="Node2D" unique_id=1481519639]
 script = ExtResource("1_ug4ku")
@@ -28,6 +52,10 @@ theme_override_font_sizes/font_size = 36
 text = "BattleScreen"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=2055081247]
+tile_set = SubResource("TileSet_pl3hk")
+script = ExtResource("9_rp0kr")
 
 [node name="Demon" parent="." unique_id=363748653 instance=ExtResource("3_cknin")]
 position = Vector2(607, 394)
