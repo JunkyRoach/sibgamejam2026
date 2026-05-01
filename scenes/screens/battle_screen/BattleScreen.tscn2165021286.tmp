@@ -1,0 +1,86 @@
+[gd_scene format=3 uid="uid://dcakup8flmjtf"]
+
+[ext_resource type="Script" uid="uid://bb70r1l8taesx" path="res://scenes/screens/battle_screen/BattleScreen.gd" id="1_ug4ku"]
+[ext_resource type="Script" uid="uid://b7g1lds2u25ph" path="res://scenes/screens/battle_screen/EnemyFactory.gd" id="2_76kaa"]
+[ext_resource type="Script" uid="uid://gfrj2mwpwopg" path="res://data/EnemyData.gd" id="3_55kx5"]
+[ext_resource type="PackedScene" uid="uid://286lwgnq1yyy" path="res://scenes/towers/Tower.tscn" id="3_cknin"]
+[ext_resource type="PackedScene" uid="uid://ds7tji3apig37" path="res://scenes/towers/OrbitalPlatform.tscn" id="5_g4gr0"]
+[ext_resource type="Resource" uid="uid://bk1j3qqcruaop" path="res://data/enemies/fat_enemy.tres" id="6_aap7m"]
+
+[node name="BattleScreen" type="Node2D" unique_id=1481519639]
+script = ExtResource("1_ug4ku")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=471475570]
+offset_left = -84.0
+offset_top = -47.0
+offset_right = 1976.0
+offset_bottom = 1162.0
+color = Color(0, 0, 0, 1)
+
+[node name="Label" type="Label" parent="." unique_id=1426472256]
+offset_left = 351.0
+offset_top = 23.0
+offset_right = 1628.0
+offset_bottom = 73.0
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/font_size = 36
+text = "BattleScreen"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="EnemyFactory" type="Node" parent="." unique_id=875393463 node_paths=PackedStringArray("enemy_layer")]
+script = ExtResource("2_76kaa")
+enemy_layer = NodePath("..")
+test_mobs = Array[ExtResource("3_55kx5")]([ExtResource("6_aap7m")])
+
+[node name="Timer" type="Timer" parent="EnemyFactory" unique_id=1550879575]
+wait_time = 0.1
+autostart = true
+
+[node name="OrbitalPlatform" parent="." unique_id=1071205248 instance=ExtResource("5_g4gr0")]
+position = Vector2(956, 547)
+radius = 128
+
+[node name="RemoteTransform2D" parent="OrbitalPlatform" index="0" unique_id=2071206277]
+remote_path = NodePath("../../Tower")
+
+[node name="OrbitalPlatform2" parent="." unique_id=1290365348 instance=ExtResource("5_g4gr0")]
+position = Vector2(956, 547)
+radius = 192
+
+[node name="RemoteTransform2D" parent="OrbitalPlatform2" index="0" unique_id=2071206277]
+remote_path = NodePath("../../Tower2")
+
+[node name="OrbitalPlatform3" parent="." unique_id=1102011025 instance=ExtResource("5_g4gr0")]
+position = Vector2(956, 547)
+radius = 256
+
+[node name="RemoteTransform2D" parent="OrbitalPlatform3" index="0" unique_id=2071206277]
+remote_path = NodePath("../../Tower3")
+
+[node name="OrbitalPlatform4" parent="." unique_id=1867577243 instance=ExtResource("5_g4gr0")]
+position = Vector2(956, 547)
+radius = 350
+
+[node name="RemoteTransform2D" parent="OrbitalPlatform4" index="0" unique_id=2071206277]
+remote_path = NodePath("../../Tower4")
+
+[node name="Tower" parent="." unique_id=725541815 instance=ExtResource("3_cknin")]
+position = Vector2(956, 547)
+reload_time = 0.01
+
+[node name="Tower2" parent="." unique_id=1255347803 instance=ExtResource("3_cknin")]
+position = Vector2(956, 547)
+
+[node name="Tower3" parent="." unique_id=838560318 instance=ExtResource("3_cknin")]
+position = Vector2(956, 547)
+
+[node name="Tower4" parent="." unique_id=299000706 instance=ExtResource("3_cknin")]
+position = Vector2(956, 547)
+
+[connection signal="timeout" from="EnemyFactory/Timer" to="EnemyFactory" method="_on_timer_timeout"]
+
+[editable path="OrbitalPlatform"]
+[editable path="OrbitalPlatform2"]
+[editable path="OrbitalPlatform3"]
+[editable path="OrbitalPlatform4"]

@@ -14,7 +14,7 @@ compatibility/default_parent_skeleton_in_mesh_instance_3d=true
 
 [application]
 
-config/name="SibGameJam2026Defence"
+config/name="Armagedec"
 run/main_scene="uid://bk32bpv17lvb0"
 config/features=PackedStringArray("4.6", "GL Compatibility")
 boot_splash/bg_color=Color(0, 0, 0, 1)
@@ -29,8 +29,8 @@ TowerStorage="*uid://cv6p1bvs7j5mx"
 
 [display]
 
-window/size/viewport_width=1920
-window/size/viewport_height=1080
+window/size/viewport_width=540
+window/size/viewport_height=960
 
 [editor]
 
