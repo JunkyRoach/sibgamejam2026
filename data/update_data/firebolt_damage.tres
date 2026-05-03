@@ -1,0 +1,15 @@
+[gd_resource type="Resource" format=3 uid="uid://cpulbkptd1kvy"]
+
+[ext_resource type="Texture2D" uid="uid://ch2bfyfhu7mri" path="res://assets/all_arts/perks.png" id="1_k8yc4"]
+[ext_resource type="Script" uid="uid://ci1riwofjkbwk" path="res://data/update_data/fireball_damage.gd" id="2_k8yc4"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4t8wu"]
+atlas = ExtResource("1_k8yc4")
+region = Rect2(790.83264, 119.75003, 382.88855, 254.2128)
+
+[resource]
+script = ExtResource("2_k8yc4")
+icon_texture = SubResource("AtlasTexture_4t8wu")
+title = "Урон Фаербола"
+description = "Усиливает урон от фаербола"
+metadata/_custom_type_script = "uid://ch7ag2lc8btry"

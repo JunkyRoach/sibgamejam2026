@@ -4,13 +4,18 @@ var enemies_list:Array[Enemy] = []
 
 func _process(delta: float) -> void:
 	for enemy:Enemy in enemies_list:
+		enemy.direction = enemy.global_position.direction_to(Demon.demon.global_position)
+		if enemy.direction.x > 0:
+			enemy.icon.flip_h = true
+		else:
+			enemy.icon.flip_h = false
 		enemy.global_position += enemy.direction * enemy.speed * delta 
-		if enemy.global_position.distance_to(Demon.demon.global_position)<=30:
-			enemy.destroy()
+		if enemy.global_position.distance_to(Demon.demon.global_position)<=50:
+			enemy.attack()
 
 
-func _on_timer_timeout() -> void:
-	print()
+#func _on_timer_timeout() -> void:
+	
 	#enemies_list.sort_custom(func(a, b): return a.progress_ratio > b.progress_ratio)
 
 

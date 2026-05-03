@@ -2,16 +2,79 @@
 
 [ext_resource type="Script" uid="uid://decd76wwym6pj" path="res://scenes/demons/Demon.gd" id="1_312pf"]
 [ext_resource type="PackedScene" uid="uid://b3haemgo6lvnb" path="res://scenes/bullets/FireBolt.tscn" id="2_gsk3a"]
-[ext_resource type="Texture2D" uid="uid://de61ld1jccfwe" path="res://icon.svg" id="3_5yt7f"]
+[ext_resource type="Texture2D" uid="uid://d1ajfilo03d0p" path="res://assets/all_arts/demon/a2 (2).png" id="2_p2c0c"]
+[ext_resource type="Texture2D" uid="uid://c68ieltu8l3pt" path="res://assets/all_arts/demon/a1 (2).png" id="3_5yt7f"]
+[ext_resource type="Texture2D" uid="uid://e7ocqmny1pb3" path="res://assets/all_arts/demon/a3 (2).png" id="3_43gaf"]
 [ext_resource type="PackedScene" uid="uid://wh2rds4rx1cc" path="res://scenes/demons/FlameThrower.tscn" id="4_5yt7f"]
+[ext_resource type="Texture2D" uid="uid://p3xw4n3h726w" path="res://assets/all_arts/demon/a4 (2).png" id="4_hxdl6"]
+[ext_resource type="Texture2D" uid="uid://nth77wr2xlqn" path="res://assets/all_arts/demon/a5 (2).png" id="5_bigao"]
+[ext_resource type="Material" uid="uid://d2wd47l16qn7e" path="res://materials/blend_add.material" id="5_fowts"]
+[ext_resource type="Texture2D" uid="uid://cht6ftxaessp" path="res://addons/kenney_particle_pack/trace_01.png" id="6_aemxk"]
+[ext_resource type="Texture2D" uid="uid://gqxsytgbvs02" path="res://assets/all_arts/demon/a6 (2).png" id="6_jwa8c"]
+
+[sub_resource type="Animation" id="Animation_ia6cg"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("IconSRT/Icon:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.1, 0.1)]
+}
+
+[sub_resource type="Animation" id="Animation_5yt7f"]
+resource_name = "idle"
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("IconSRT/Icon:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0.1, 0.1), Vector2(0.11, 0.09), Vector2(0.1, 0.1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ia6cg"]
+_data = {
+&"RESET": SubResource("Animation_ia6cg"),
+&"idle": SubResource("Animation_5yt7f")
+}
+
+[sub_resource type="Curve" id="Curve_10fkj"]
+_data = [Vector2(0, 0), 0.0, 4.956762, 0, 0, Vector2(0.5771812, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -7.500815, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_p2c0c"]
+bg_color = Color(1, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_43gaf"]
+bg_color = Color(0.09411765, 1, 0, 1)
 
 [node name="Demon" type="Node2D" unique_id=725541815]
 script = ExtResource("1_312pf")
+upgrade_texture_1 = ExtResource("3_5yt7f")
+upgrade_texture_2 = ExtResource("2_p2c0c")
+upgrade_texture_3 = ExtResource("3_43gaf")
+upgrade_texture_4 = ExtResource("4_hxdl6")
+upgrade_texture_5 = ExtResource("5_bigao")
+upgrade_texture_6 = ExtResource("6_jwa8c")
 firebolt_scene = ExtResource("2_gsk3a")
-attack_range = 1000.0
 
-[node name="BlockA02" type="Sprite2D" parent="." unique_id=1844037176]
-scale = Vector2(0.5, 0.5)
+[node name="IconSRT" type="Node2D" parent="." unique_id=1884097516]
+
+[node name="Icon" type="Sprite2D" parent="IconSRT" unique_id=1844037176]
+unique_name_in_owner = true
+scale = Vector2(0.1, 0.1)
 texture = ExtResource("3_5yt7f")
 
 [node name="SRT" type="Node2D" parent="." unique_id=12534766]
@@ -22,7 +85,49 @@ unique_name_in_owner = true
 position = Vector2(15, 0)
 
 [node name="Timer" type="Timer" parent="." unique_id=1066786598]
+one_shot = true
 
 [node name="FlameThrower" parent="." unique_id=1204241412 instance=ExtResource("4_5yt7f")]
+unique_name_in_owner = true
+
+[node name="second_timer" type="Timer" parent="." unique_id=913149705]
+autostart = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1359254658]
+libraries/ = SubResource("AnimationLibrary_ia6cg")
+autoplay = &"idle"
+
+[node name="LevelUpParts" type="CPUParticles2D" parent="." unique_id=2103007499]
+unique_name_in_owner = true
+material = ExtResource("5_fowts")
+position = Vector2(1, 30)
+emitting = false
+amount = 64
+texture = ExtResource("6_aemxk")
+one_shot = true
+speed_scale = 2.0
+explosiveness = 0.34
+randomness = 1.0
+local_coords = true
+emission_shape = 3
+emission_rect_extents = Vector2(32, 5)
+gravity = Vector2(0, -128)
+linear_accel_max = 50.0
+scale_amount_min = 0.1
+scale_amount_max = 0.2
+scale_amount_curve = SubResource("Curve_10fkj")
+color = Color(1.7411593, 1.1513165, 0, 1)
+
+[node name="ProgressBar" type="ProgressBar" parent="." unique_id=1090055991]
+unique_name_in_owner = true
+offset_left = -29.0
+offset_top = 29.0
+offset_right = 36.0
+offset_bottom = 40.0
+theme_override_styles/background = SubResource("StyleBoxFlat_p2c0c")
+theme_override_styles/fill = SubResource("StyleBoxFlat_43gaf")
+value = 70.0
+show_percentage = false
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="second_timer" to="." method="_on_second_timer_timeout"]

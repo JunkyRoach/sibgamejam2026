@@ -12,6 +12,7 @@ func _ready() -> void:
 	
 func start_battle():
 	GameController.start_battle()
+	UpgradeStorage.reset_stats()
 	
 
 

@@ -2,18 +2,29 @@
 
 [ext_resource type="Script" uid="uid://bwtq2n2or387m" path="res://scenes/screens/main_menu_screen/MainMenuScreen.gd" id="1_xi22d"]
 [ext_resource type="PackedScene" uid="uid://b63nyfauq5jmq" path="res://scenes/screens/main_menu_screen/MissionIcon.tscn" id="2_lb3se"]
+[ext_resource type="Texture2D" uid="uid://c1ms0iw7ecej6" path="res://assets/all_arts/Victory.png" id="2_rodnl"]
+[ext_resource type="Texture2D" uid="uid://onhiven32cfv" path="res://assets/all_arts/Dead.png" id="3_72ndr"]
+[ext_resource type="Texture2D" uid="uid://u7fsh12wyxc2" path="res://assets/all_arts/bkg.png" id="3_ry66l"]
+[ext_resource type="Texture2D" uid="uid://cd5gmypbgp7v2" path="res://assets/all_arts/name.png" id="4_y04g3"]
 
 [node name="MainMenuScreen" type="Node2D" unique_id=1599603681]
 script = ExtResource("1_xi22d")
+win_texture = ExtResource("2_rodnl")
+lose_texture = ExtResource("3_72ndr")
+
+[node name="BKG" type="TextureRect" parent="." unique_id=1219533720]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(1280, 720)
+offset_right = 1280.0
+offset_bottom = 720.0
+texture = ExtResource("3_ry66l")
+expand_mode = 1
 
 [node name="MissionIcon" parent="." unique_id=673718084 instance=ExtResource("2_lb3se")]
-position = Vector2(251, 169)
+position = Vector2(395, 284)
 
-[node name="Label" type="Label" parent="." unique_id=2127397665]
-offset_right = 1277.0
-offset_bottom = 50.0
-theme_override_constants/outline_size = 10
-theme_override_font_sizes/font_size = 36
-text = "Main Menu"
-horizontal_alignment = 1
-vertical_alignment = 1
+[node name="Name" type="Sprite2D" parent="." unique_id=197262755]
+unique_name_in_owner = true
+position = Vector2(629.00006, 167)
+scale = Vector2(0.34074074, 0.34074074)
+texture = ExtResource("4_y04g3")

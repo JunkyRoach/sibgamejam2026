@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bi84hhbmfoqqb" path="res://Main.gd" id="1_glv2v"]
 [ext_resource type="Script" uid="uid://cmp64sb33hpc5" path="res://Layers.gd" id="2_uu6xs"]
+[ext_resource type="AudioStream" uid="uid://b8fuhiymjush8" path="res://assets/EvilutionMusic2.ogg" id="3_r0du0"]
 
 [node name="Main" type="Node2D" unique_id=1095629283]
 script = ExtResource("1_glv2v")
@@ -25,3 +26,8 @@ layer = 10
 [node name="WindowLayer" type="CanvasLayer" parent="Layers" unique_id=513215287]
 unique_name_in_owner = true
 layer = 30
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1304553110]
+process_mode = 3
+stream = ExtResource("3_r0du0")
+autoplay = true

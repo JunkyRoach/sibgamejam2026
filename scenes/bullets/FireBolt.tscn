@@ -2,23 +2,28 @@
 
 [ext_resource type="Script" uid="uid://1r1648wgk0oq" path="res://scenes/bullets/FireBolt.gd" id="1_uwowa"]
 [ext_resource type="Texture2D" uid="uid://5fr2tvaakegn" path="res://assets/bullets/plasma_bullet.png" id="2_n67tg"]
+[ext_resource type="Material" uid="uid://d2wd47l16qn7e" path="res://materials/blend_add.material" id="3_jvjwc"]
+[ext_resource type="Texture2D" uid="uid://dedk07eb7xnc5" path="res://addons/kenney_particle_pack/fire_02.png" id="4_4kbnt"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_jtypa"]
-size = Vector2(15, 11)
+[sub_resource type="CircleShape2D" id="CircleShape2D_uwowa"]
 
 [sub_resource type="Curve" id="Curve_jtypa"]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -2.0790927, 0.0, 0, 0]
 point_count = 2
 
+[sub_resource type="Curve" id="Curve_gpg7e"]
+_data = [Vector2(0, 0), 0.0, 7.65666, 0, 0, Vector2(0.42617446, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.0068211555), -7.9276886, 0.0, 0, 0]
+point_count = 3
+
 [node name="FireBolt" type="Area2D" unique_id=1893233085]
+z_index = 5
 collision_mask = 2
 script = ExtResource("1_uwowa")
 speed = 300
 damage = 100
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=869743922]
-position = Vector2(-0.5, 0.5)
-shape = SubResource("RectangleShape2D_jtypa")
+shape = SubResource("CircleShape2D_uwowa")
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="." unique_id=215313029]
 position = Vector2(7, 0)
@@ -43,6 +48,21 @@ rect = Rect2(-10, -7, 18, 17)
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=200865347]
 modulate = Color(2.055, 0.097321436, 0, 1)
 texture = ExtResource("2_n67tg")
+
+[node name="CPUParticles2D2" type="CPUParticles2D" parent="." unique_id=1245187904]
+material = ExtResource("3_jvjwc")
+amount = 16
+texture = ExtResource("4_4kbnt")
+local_coords = true
+gravity = Vector2(0, 0)
+angular_velocity_min = -129.23
+angular_velocity_max = 166.15
+angle_min = -720.0
+angle_max = 720.0
+scale_amount_min = 0.1
+scale_amount_max = 0.1
+scale_amount_curve = SubResource("Curve_gpg7e")
+color = Color(1, 0.18039216, 0, 1)
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

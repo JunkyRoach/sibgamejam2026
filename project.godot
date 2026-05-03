@@ -26,11 +26,15 @@ GameController="*res://singletons/GameController.gd"
 EnemyManager="*res://singletons/managers/EnemyManager.tscn"
 Dispatcher="*uid://bf21eaob2yoff"
 TowerStorage="*uid://cv6p1bvs7j5mx"
+UpgradeStorage="*uid://bnips0e8awvo1"
 
 [display]
 
 window/size/viewport_width=1280
 window/size/viewport_height=720
+window/size/window_width_override=1280
+window/size/window_height_override=720
+window/stretch/mode="canvas_items"
 
 [editor]
 

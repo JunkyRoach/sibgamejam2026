@@ -1,0 +1,14 @@
+[gd_resource type="Resource" format=3 uid="uid://64n11t8xujga"]
+
+[ext_resource type="Script" uid="uid://bt5w45nvmgp5o" path="res://data/update_data/fireball_radius.gd" id="1_bn6u3"]
+[ext_resource type="Texture2D" uid="uid://ch2bfyfhu7mri" path="res://assets/all_arts/perks.png" id="1_lcuen"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_53tru"]
+atlas = ExtResource("1_lcuen")
+region = Rect2(1220.8892, 101.58972, 282.95386, 263.466)
+
+[resource]
+script = ExtResource("1_bn6u3")
+icon_texture = SubResource("AtlasTexture_53tru")
+title = "Радиус фаербола"
+description = "Увеличивает радиус фаербола"

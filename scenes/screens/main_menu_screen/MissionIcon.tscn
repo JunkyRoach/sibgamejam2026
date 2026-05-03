@@ -1,42 +1,40 @@
 [gd_scene format=3 uid="uid://b63nyfauq5jmq"]
 
 [ext_resource type="Script" uid="uid://7wsr0r6prno1" path="res://scenes/screens/main_menu_screen/MissionIcon.gd" id="1_f3436"]
-[ext_resource type="Resource" uid="uid://3kv7yccrpli3" path="res://data/missions/mission_1/mission_1.tres" id="2_k36cf"]
+[ext_resource type="Texture2D" uid="uid://djynjtel7rrbd" path="res://assets/all_arts/кнопка.png" id="2_k36cf"]
 
 [node name="MissionIcon" type="Node2D" unique_id=1750400808]
 script = ExtResource("1_f3436")
-mission_data = ExtResource("2_k36cf")
 
-[node name="ColorRect" type="ColorRect" parent="." unique_id=909713191]
-custom_minimum_size = Vector2(128, 128)
-offset_right = 115.0
-offset_bottom = 96.0
-color = Color(0.983103, 0.353999, 0.317175, 1)
+[node name="TapArea" type="TextureButton" parent="." unique_id=1984554908]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 2.0
+offset_right = 476.98306
+offset_bottom = 124.0
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("2_k36cf")
+ignore_texture_size = true
+stretch_mode = 0
 
-[node name="MissionLabel" type="Label" parent="ColorRect" unique_id=854585973]
+[node name="MissionLabel" type="Label" parent="." unique_id=854585973]
 unique_name_in_owner = true
-layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -36.5
-offset_top = -23.0
-offset_right = 36.5
+offset_left = 176.0
+offset_top = 38.0
+offset_right = 304.0
+offset_bottom = 72.0
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 7
 theme_override_font_sizes/font_size = 24
-text = "New GAme"
+text = "New Game"
 
-[node name="TapArea" type="TextureButton" parent="ColorRect" unique_id=1984554908]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[connection signal="pressed" from="ColorRect/TapArea" to="." method="_on_tap_area_pressed"]
+[connection signal="pressed" from="TapArea" to="." method="_on_tap_area_pressed"]

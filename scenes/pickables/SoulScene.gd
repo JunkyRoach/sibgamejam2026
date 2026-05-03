@@ -22,13 +22,14 @@ static func instantiate(p_pos:Vector2):
 func _process(delta: float) -> void:
 	if self.global_position.distance_to(Demon.demon.global_position) <30:
 		destroy()
-	elif self.global_position.distance_to(Demon.demon.global_position) <450:
+	elif self.global_position.distance_to(Demon.demon.global_position) <UpgradeStorage.souls_magnit:
 		self.global_position = lerp(self.global_position,Demon.demon.global_position, 0.1 )
 	pass
 
 
 
 func destroy():
+	GameController.soul_added()
 	self.get_parent().remove_child(self)
 	_pool.append(self)
 	

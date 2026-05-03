@@ -1,0 +1,92 @@
+[gd_scene format=3 uid="uid://bvkx70l22wt8s"]
+
+[ext_resource type="Texture2D" uid="uid://de61ld1jccfwe" path="res://icon.svg" id="1_fjlsq"]
+[ext_resource type="Script" uid="uid://1lg555qm0q4l" path="res://scenes/screens/battle_screen/PercIcon.gd" id="1_x2gwr"]
+[ext_resource type="Texture2D" uid="uid://ch2bfyfhu7mri" path="res://assets/all_arts/perks.png" id="2_uip1f"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g0aqf"]
+atlas = ExtResource("2_uip1f")
+region = Rect2(96.28296, 61.45419, 599.1548, 946.7164)
+
+[node name="PercIcon" type="Control" unique_id=462459044]
+custom_minimum_size = Vector2(303, 437)
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_x2gwr")
+
+[node name="BKG" type="TextureRect" parent="." unique_id=1263083833]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("AtlasTexture_g0aqf")
+expand_mode = 1
+
+[node name="IconTextureRect" type="TextureRect" parent="." unique_id=489021474]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(196, 196)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -94.5
+offset_top = 63.0
+offset_right = 108.5
+offset_bottom = 259.0
+grow_horizontal = 2
+texture = ExtResource("1_fjlsq")
+expand_mode = 1
+
+[node name="Title" type="Label" parent="." unique_id=920419571]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = 40.0
+offset_top = 38.5
+offset_right = -30.0
+offset_bottom = 174.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.74509805, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 6
+theme_override_font_sizes/font_size = 48
+text = "FireBall FireRate"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Description" type="Label" parent="." unique_id=446504392]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 16.0
+offset_top = -132.0
+offset_right = 9.0
+offset_bottom = -38.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Длинное описание перка"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="TextureButton" type="TextureButton" parent="." unique_id=693937846]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[connection signal="pressed" from="TextureButton" to="." method="_on_texture_button_pressed"]

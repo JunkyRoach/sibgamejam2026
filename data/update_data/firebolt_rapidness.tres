@@ -1,0 +1,15 @@
+[gd_resource type="Resource" format=3 uid="uid://btiu8i01o32ft"]
+
+[ext_resource type="Texture2D" uid="uid://ch2bfyfhu7mri" path="res://assets/all_arts/perks.png" id="1_i2j12"]
+[ext_resource type="Script" uid="uid://2d1rel2ppw0a" path="res://data/update_data/fireball_firerate.gd" id="2_i2j12"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j0cft"]
+atlas = ExtResource("1_i2j12")
+region = Rect2(1529.9264, 83.862045, 274.78687, 348.3656)
+
+[resource]
+script = ExtResource("2_i2j12")
+icon_texture = SubResource("AtlasTexture_j0cft")
+title = "FireRate"
+description = "Усиливает скорострельность"
+metadata/_custom_type_script = "uid://ch7ag2lc8btry"

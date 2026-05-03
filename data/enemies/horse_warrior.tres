@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="EnemyData" format=3 uid="uid://cw5fk8an3v58u"]
+
+[ext_resource type="Script" uid="uid://gfrj2mwpwopg" path="res://data/EnemyData.gd" id="1_opw4e"]
+[ext_resource type="Texture2D" uid="uid://dd1clqxfwb00v" path="res://assets/all_arts/horse_warrior.png" id="2_wqrtu"]
+
+[resource]
+script = ExtResource("1_opw4e")
+title = "HorseWarrior "
+texture = ExtResource("2_wqrtu")
+speed = 25.0
+max_hp = 1
+damage = 15
+metadata/_custom_type_script = "uid://gfrj2mwpwopg"

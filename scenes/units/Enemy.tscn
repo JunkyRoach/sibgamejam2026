@@ -1,36 +1,179 @@
 [gd_scene format=3 uid="uid://b2ppypg6hdfym"]
 
 [ext_resource type="Script" uid="uid://cocgp8sbrd5da" path="res://scenes/units/Enemy.gd" id="1_rmvmi"]
-[ext_resource type="Texture2D" uid="uid://de61ld1jccfwe" path="res://icon.svg" id="2_00u72"]
-[ext_resource type="Material" uid="uid://d2wd47l16qn7e" path="res://materials/blend_add.material" id="3_20l3p"]
+[ext_resource type="Texture2D" uid="uid://k3un8bn0tmwl" path="res://assets/all_arts/peasant.png" id="2_rmvmi"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_rmvmi"]
-size = Vector2(40, 28)
+[sub_resource type="CircleShape2D" id="CircleShape2D_rmvmi"]
+radius = 21.095022
 
 [sub_resource type="Curve" id="Curve_rmvmi"]
 _data = [Vector2(0, 0), 0.0, 6.479656, 0, 0, Vector2(0.5547445, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
 point_count = 3
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rmvmi"]
+bg_color = Color(1, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_20l3p"]
+bg_color = Color(3.3691526e-06, 0.72992706, 0.49847972, 1)
+
+[sub_resource type="Animation" id="Animation_rmvmi"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Icon:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.03840084, 0.038400844)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Icon:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_tdpf6"]
+resource_name = "attack"
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Icon:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0.03840084, 0.038400844), Vector2(0.03840084, 0.038400844), Vector2(0.03840084, 0.038400844)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Icon:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.0009999999, 0.1, 0.2, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.17498776, -0.37474307, 0.0, 0.0]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.2),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"deal_damage"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_00u72"]
+resource_name = "attack_right"
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Icon:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0.03840084, 0.038400844), Vector2(0.03840084, 0.038400844), Vector2(0.03840084, 0.038400844)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Icon:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.0009999999, 0.1, 0.2, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, -0.23498389, 0.545923, 0.0, 0.0]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.2),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"deal_damage"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_20l3p"]
+resource_name = "idle"
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Icon:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0.03840084, 0.038400844), Vector2(0.04, 0.035), Vector2(0.03840084, 0.038400844)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_tdpf6"]
+_data = {
+&"RESET": SubResource("Animation_rmvmi"),
+&"attack": SubResource("Animation_tdpf6"),
+&"attack_right": SubResource("Animation_00u72"),
+&"idle": SubResource("Animation_20l3p")
+}
+
 [node name="Enemy" type="Area2D" unique_id=408055940]
+z_index = 1
 collision_layer = 2
 script = ExtResource("1_rmvmi")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2090038576]
-position = Vector2(-2, -1)
-shape = SubResource("RectangleShape2D_rmvmi")
-
 [node name="Icon" type="Sprite2D" parent="." unique_id=660789851]
-modulate = Color(0.11372549, 1, 0.18039216, 1)
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("2_00u72")
+unique_name_in_owner = true
+scale = Vector2(0.03840084, 0.038400844)
+texture = ExtResource("2_rmvmi")
+offset = Vector2(-156.24658, -911.4383)
+flip_h = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2090038576]
+shape = SubResource("CircleShape2D_rmvmi")
 
 [node name="DestroyParts" type="CPUParticles2D" parent="." unique_id=1507730763]
 unique_name_in_owner = true
-material = ExtResource("3_20l3p")
+z_index = 5
 emitting = false
 amount = 32
 one_shot = true
-speed_scale = 2.0
+speed_scale = 3.0
 explosiveness = 0.84
 spread = 180.0
 gravity = Vector2(0, 0)
@@ -41,6 +184,24 @@ angle_max = 720.0
 scale_amount_min = 2.0
 scale_amount_max = 10.0
 scale_amount_curve = SubResource("Curve_rmvmi")
-color = Color(1.093983, 0.23562965, 0, 1)
+color = Color(1, 0, 0, 1)
+
+[node name="ProgressBar" type="ProgressBar" parent="." unique_id=1983944596]
+unique_name_in_owner = true
+visible = false
+z_index = -1
+offset_left = -19.0
+offset_top = 7.0
+offset_right = 19.0
+offset_bottom = 18.0
+theme_override_styles/background = SubResource("StyleBoxFlat_rmvmi")
+theme_override_styles/fill = SubResource("StyleBoxFlat_20l3p")
+value = 89.97
+show_percentage = false
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=744723169]
+unique_name_in_owner = true
+libraries/ = SubResource("AnimationLibrary_tdpf6")
+autoplay = &"idle"
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]

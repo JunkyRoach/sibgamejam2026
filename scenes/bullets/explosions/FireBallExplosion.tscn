@@ -1,0 +1,47 @@
+[gd_scene format=3 uid="uid://dx5m7wham107w"]
+
+[ext_resource type="Script" uid="uid://c0enspn28y2ln" path="res://scenes/bullets/explosions/FireBallExplosion.gd" id="1_kec52"]
+[ext_resource type="Material" uid="uid://d2wd47l16qn7e" path="res://materials/blend_add.material" id="2_chc1x"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_chc1x"]
+
+[sub_resource type="Curve" id="Curve_kec52"]
+_data = [Vector2(0, 0), 0.0, 4.899574, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_chc1x"]
+offsets = PackedFloat32Array(0, 0.85, 1)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 1)
+
+[node name="FireBallExplosion" type="Area2D" unique_id=2119206517]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("1_kec52")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2140777030]
+unique_name_in_owner = true
+shape = SubResource("CircleShape2D_chc1x")
+
+[node name="ExplosionParts" type="CPUParticles2D" parent="." unique_id=1411497662]
+unique_name_in_owner = true
+z_index = 100
+material = ExtResource("2_chc1x")
+emitting = false
+amount = 50
+one_shot = true
+speed_scale = 2.5
+explosiveness = 0.93
+randomness = 0.24
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 75.0
+initial_velocity_max = 75.0
+angle_min = -720.0
+angle_max = 720.0
+scale_amount_min = 15.0
+scale_amount_max = 25.0
+scale_amount_curve = SubResource("Curve_kec52")
+color = Color(1, 0.09019608, 0, 1)
+color_ramp = SubResource("Gradient_chc1x")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]

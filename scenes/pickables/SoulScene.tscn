@@ -1,9 +1,9 @@
 [gd_scene format=3 uid="uid://dej6s4nnrjq1p"]
 
-[ext_resource type="Texture2D" uid="uid://de61ld1jccfwe" path="res://icon.svg" id="1_nmdpn"]
+[ext_resource type="Texture2D" uid="uid://dm3u87aaq4kax" path="res://assets/all_arts/soul.png" id="1_knpvm"]
 [ext_resource type="Script" uid="uid://xak7d2460n5b" path="res://scenes/pickables/SoulScene.gd" id="2_knpvm"]
 
 [node name="SoulScene" type="Sprite2D" unique_id=281452214]
-scale = Vector2(0.3, 0.3)
-texture = ExtResource("1_nmdpn")
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("1_knpvm")
 script = ExtResource("2_knpvm")

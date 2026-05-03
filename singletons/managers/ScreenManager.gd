@@ -10,13 +10,17 @@ static var current_screen:ScreenBase
 
 
 
-static func show_main_menu():
+static func show_main_menu(p_win: = false, p_loose:= false):
 	_clear_current_screen()
 	if _main_menu_screen == null:
 		_main_menu_screen = MainMenuScreen.main_menu_scene.instantiate()
 	
 	current_screen = _main_menu_screen
 	Layers.SCREEN_LAYER.add_child(_main_menu_screen)
+	if p_win:
+		_main_menu_screen.show_win()
+	elif p_loose:
+		_main_menu_screen.show_loose()
 	
 	pass
 

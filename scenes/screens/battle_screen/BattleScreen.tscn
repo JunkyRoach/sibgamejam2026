@@ -4,11 +4,14 @@
 [ext_resource type="Script" uid="uid://b7g1lds2u25ph" path="res://scenes/screens/battle_screen/EnemyFactory.gd" id="2_76kaa"]
 [ext_resource type="Script" uid="uid://gfrj2mwpwopg" path="res://data/EnemyData.gd" id="3_55kx5"]
 [ext_resource type="PackedScene" uid="uid://286lwgnq1yyy" path="res://scenes/demons/Demon.tscn" id="3_cknin"]
-[ext_resource type="Resource" uid="uid://ds380o3r2d51q" path="res://data/enemies/common_enemy.tres" id="4_n65b1"]
-[ext_resource type="Resource" uid="uid://cu6o7dr525duq" path="res://data/enemies/fast_enemy.tres" id="5_very3"]
-[ext_resource type="Resource" uid="uid://bk1j3qqcruaop" path="res://data/enemies/fat_enemy.tres" id="6_aap7m"]
+[ext_resource type="Resource" uid="uid://ds380o3r2d51q" path="res://data/enemies/peasant.tres" id="4_n65b1"]
+[ext_resource type="Resource" uid="uid://cu6o7dr525duq" path="res://data/enemies/swordsman.tres" id="5_very3"]
+[ext_resource type="Resource" uid="uid://bk1j3qqcruaop" path="res://data/enemies/spearman.tres" id="6_aap7m"]
 [ext_resource type="Texture2D" uid="uid://bqfvjfaglwl6b" path="res://assets/tilesets/grass_and_dirt.png" id="8_very3"]
 [ext_resource type="Script" uid="uid://c6lljgyftxp4c" path="res://scenes/tiles/TileMapLayer.gd" id="9_rp0kr"]
+[ext_resource type="Resource" uid="uid://cw5fk8an3v58u" path="res://data/enemies/horse_warrior.tres" id="10_pl3hk"]
+[ext_resource type="Script" uid="uid://dfapbr4beswi8" path="res://scenes/screens/battle_screen/Gui.gd" id="10_rp0kr"]
+[ext_resource type="PackedScene" uid="uid://b340oqnhq1l51" path="res://scenes/screens/battle_screen/SelectPerkWindow.tscn" id="11_aua20"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_aap7m"]
 texture = ExtResource("8_very3")
@@ -35,41 +38,69 @@ sources/0 = SubResource("TileSetAtlasSource_aap7m")
 [node name="BattleScreen" type="Node2D" unique_id=1481519639]
 script = ExtResource("1_ug4ku")
 
-[node name="ColorRect" type="ColorRect" parent="." unique_id=471475570]
-offset_left = -84.0
-offset_top = -47.0
-offset_right = 1976.0
-offset_bottom = 1162.0
-color = Color(0, 0, 0, 1)
-
-[node name="Label" type="Label" parent="." unique_id=1426472256]
-offset_left = 11.0
-offset_top = 9.0
-offset_right = 1288.0
-offset_bottom = 59.0
-theme_override_constants/outline_size = 10
-theme_override_font_sizes/font_size = 36
-text = "BattleScreen"
-horizontal_alignment = 1
-vertical_alignment = 1
-
 [node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=2055081247]
+process_mode = 4
+visible = false
 tile_set = SubResource("TileSet_pl3hk")
 script = ExtResource("9_rp0kr")
 
 [node name="Demon" parent="." unique_id=363748653 instance=ExtResource("3_cknin")]
 position = Vector2(607, 394)
-attack_range = 2500.0
 
 [node name="Camera2D" type="Camera2D" parent="Demon" unique_id=1568127467]
+
+[node name="ColorRect" type="ColorRect" parent="Demon" unique_id=471475570]
+show_behind_parent = true
+offset_left = -691.0
+offset_top = -441.0
+offset_right = 1369.0
+offset_bottom = 768.0
+color = Color(0.20443258, 0.2938198, 0.20449534, 1)
 
 [node name="EnemyFactory" type="Node" parent="." unique_id=875393463 node_paths=PackedStringArray("enemy_layer")]
 script = ExtResource("2_76kaa")
 enemy_layer = NodePath("..")
-test_mobs = Array[ExtResource("3_55kx5")]([ExtResource("4_n65b1"), ExtResource("5_very3"), ExtResource("6_aap7m")])
+test_mobs = Array[ExtResource("3_55kx5")]([ExtResource("4_n65b1"), ExtResource("5_very3"), ExtResource("6_aap7m"), ExtResource("10_pl3hk")])
+peasant = ExtResource("4_n65b1")
+lancer = ExtResource("6_aap7m")
+swordsman = ExtResource("5_very3")
+horce_warrior = ExtResource("10_pl3hk")
 
 [node name="Timer" type="Timer" parent="EnemyFactory" unique_id=1550879575]
-wait_time = 0.05
+wait_time = 0.5
 autostart = true
+
+[node name="UI" type="CanvasLayer" parent="." unique_id=1423311883]
+layer = 128
+
+[node name="GUI" type="Control" parent="UI" unique_id=715468245]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("10_rp0kr")
+
+[node name="LevelProgressBar" type="ProgressBar" parent="UI/GUI" unique_id=1147305063]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 377.0
+offset_top = 12.0
+offset_right = 916.0
+offset_bottom = 53.0
+
+[node name="LevelLabel" type="Label" parent="UI/GUI" unique_id=2144914783]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 280.0
+offset_top = 5.0
+offset_right = 342.0
+offset_bottom = 50.0
+theme_override_font_sizes/font_size = 32
+text = "lvl:1"
+
+[node name="SelectPerkWindow" parent="UI/GUI" unique_id=1168160557 instance=ExtResource("11_aua20")]
+layout_mode = 1
 
 [connection signal="timeout" from="EnemyFactory/Timer" to="EnemyFactory" method="_on_timer_timeout"]

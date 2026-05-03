@@ -1,0 +1,104 @@
+[gd_scene format=3 uid="uid://b340oqnhq1l51"]
+
+[ext_resource type="Script" uid="uid://4jvbmq34rqfq" path="res://scenes/screens/battle_screen/SelectPerkWindow.gd" id="1_ttfj0"]
+[ext_resource type="PackedScene" uid="uid://bvkx70l22wt8s" path="res://scenes/screens/battle_screen/PercIcon.tscn" id="2_lgbid"]
+
+[sub_resource type="Animation" id="Animation_aua20"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("GridContainer:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(181.5, 1000)]
+}
+
+[sub_resource type="Animation" id="Animation_m8a06"]
+resource_name = "hide_level_up"
+length = 0.5
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("GridContainer:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(181.5, 141.5), Vector2(181.5, 1000)]
+}
+
+[sub_resource type="Animation" id="Animation_pl3hk"]
+resource_name = "show_level_up"
+length = 0.5
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("GridContainer:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(181.5, 1000), Vector2(181.5, 141.5)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_m8a06"]
+_data = {
+&"RESET": SubResource("Animation_aua20"),
+&"hide_level_up": SubResource("Animation_m8a06"),
+&"show_level_up": SubResource("Animation_pl3hk")
+}
+
+[node name="SelectPerkWindow" type="Control" unique_id=1168160557 node_paths=PackedStringArray("perk_icon_list")]
+process_mode = 3
+custom_minimum_size = Vector2(776, 352)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ttfj0")
+perk_icon_list = [NodePath("GridContainer/PercIcon"), NodePath("GridContainer/PercIcon2"), NodePath("GridContainer/PercIcon3")]
+
+[node name="LevelAnimationPlayer" type="AnimationPlayer" parent="." unique_id=1452685953]
+unique_name_in_owner = true
+libraries/ = SubResource("AnimationLibrary_m8a06")
+
+[node name="GridContainer" type="GridContainer" parent="." unique_id=741419770]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -458.5
+offset_top = 640.0
+offset_right = 458.5
+offset_bottom = 1077.0
+grow_horizontal = 2
+grow_vertical = 2
+columns = 3
+
+[node name="PercIcon" parent="GridContainer" unique_id=462459044 instance=ExtResource("2_lgbid")]
+layout_mode = 2
+
+[node name="PercIcon2" parent="GridContainer" unique_id=363260858 instance=ExtResource("2_lgbid")]
+layout_mode = 2
+
+[node name="PercIcon3" parent="GridContainer" unique_id=753836746 instance=ExtResource("2_lgbid")]
+layout_mode = 2
+
+[connection signal="perk_selected" from="GridContainer/PercIcon" to="." method="_on_button_pressed"]
+[connection signal="perk_selected" from="GridContainer/PercIcon2" to="." method="_on_button_pressed"]
+[connection signal="perk_selected" from="GridContainer/PercIcon3" to="." method="_on_button_pressed"]

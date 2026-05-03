@@ -1,0 +1,14 @@
+[gd_resource type="Resource" format=3 uid="uid://ct2ok2r16fdl3"]
+
+[ext_resource type="Texture2D" uid="uid://ch2bfyfhu7mri" path="res://assets/all_arts/perks.png" id="1_kfpyx"]
+[ext_resource type="Script" uid="uid://dq5ljghh7g5dj" path="res://data/update_data/radius_magnet.gd" id="2_kfpyx"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ch4vw"]
+atlas = ExtResource("1_kfpyx")
+region = Rect2(801.7811, 375.29718, 316.43677, 316.43665)
+
+[resource]
+script = ExtResource("2_kfpyx")
+icon_texture = SubResource("AtlasTexture_ch4vw")
+title = "Душевный магнит"
+description = "Увеличивает радиус сбора душ"
